@@ -1,6 +1,6 @@
 import { Link, NavLink } from 'react-router'
 import { LayoutGrid, LogOut, Search, ShoppingBag, User } from 'lucide-react'
-import { useAuth } from '../auth/AuthContext.tsx'
+import { useAuth } from "../../auth/AuthContext.tsx";
 import './Navbar.css'
 
 export interface NavItem {
