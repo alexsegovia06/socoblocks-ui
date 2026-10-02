@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 
-/* Variables propias de IconicBrick (prefijo --ib-) para no chocar con las de index.css */
 .layout {
   --ib-red: #b8413d;
   --ib-red-dark: #a23733;

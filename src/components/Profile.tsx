@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { useAuth } from '../auth/AuthContext.tsx'
 import type { MeResponse } from '../types.ts'
 
-// Calls GET /api/user/me with the token to show what the backend knows about you.
 export default function Profile() {
   const { authFetch } = useAuth()
   const [me, setMe] = useState<MeResponse | null>(null)

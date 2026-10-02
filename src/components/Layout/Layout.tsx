@@ -8,7 +8,6 @@ interface Props {
   links?: NavItem[]
 }
 
-// Header + Footer de IconicBrick. Con `links` (rutas con sesión) el contenido va dentro de .main.
 export default function Layout({ links }: Props) {
   return (
     <div className="layout">
