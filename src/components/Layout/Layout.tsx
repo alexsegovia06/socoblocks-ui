@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router'
-import Header from './Header.tsx'
-import Footer from './Footer.tsx'
-import type { NavItem } from './Navbar.tsx'
+import Header from '../../components/Header/Header'
+import Footer from '../../components/Footer/Footer'
+import type { NavItem } from "../Navbar/Navbar.tsx";
 import './Layout.css'
 
 interface Props {

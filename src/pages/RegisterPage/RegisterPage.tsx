@@ -1,9 +1,9 @@
 import { useState, type FormEvent } from 'react'
 import { Heart, Store, UserPlus } from 'lucide-react'
-import AuthHero from '../components/AuthHero.tsx'
-import AuthTabs from '../components/AuthTabs.tsx'
-import { useAuth } from '../auth/AuthContext.tsx'
-import './AuthPages.css'
+import AuthHero from "../../components/AuthHero/AuthHero.tsx";
+import AuthTabs from "../../components/AuthTabs/AuthTabs.tsx"
+import { useAuth } from '../../auth/AuthContext'
+import '../LoginPage/AuthPages.css'
 import './RegisterPage.css'
 
 type Participacion = 'coleccionista' | 'vendedor'

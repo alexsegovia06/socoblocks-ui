@@ -1,7 +1,7 @@
 import { Link } from 'react-router'
 import { Blocks } from 'lucide-react'
-import Navbar from './Navbar.tsx'
-import type { NavItem } from './Navbar.tsx'
+import Navbar from "../Navbar/Navbar.tsx";
+import type { NavItem } from "../Navbar/Navbar.ts";
 import './Header.css'
 
 interface Props {
