@@ -135,3 +135,35 @@
     padding: 24px 16px;
   }
 }
+
+.auth-password {
+  position: relative;
+}
+
+.auth-password .auth-input {
+  padding-right: 46px;
+}
+
+.auth-toggle {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  min-width: 32px;
+  height: 32px;
+  padding: 0 6px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--ib-muted);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.auth-toggle:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--ib-ink);
+  opacity: 1;
+}

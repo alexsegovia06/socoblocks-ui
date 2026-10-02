@@ -13,6 +13,7 @@ export default function LoginPage() {
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
+  const [showPassword, setShowPassword] = useState(false)
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault()
@@ -61,16 +62,28 @@ export default function LoginPage() {
                   ¿Olvidaste tu contraseña?
                 </a>
               </div>
-              <input
-                id="login-password"
-                className="auth-input"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="••••••••"
-                autoComplete="current-password"
-                required
-              />
+              <div className="auth-password">
+                <input
+                    id="login-password"
+                    className="auth-input"
+                    type={showPassword ? 'text' : 'password'}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="••••••••"
+                    autoComplete="current-password"
+                    required
+                />
+                <button
+                    type="button"
+                    className="auth-toggle"
+                    onClick={() => setShowPassword((v) => !v)}
+                    aria-label={showPassword ? 'Ocultar contraseña' : 'Mostrar contraseña'}
+                    aria-pressed={showPassword}
+                >
+                  {/* Aquí tus íconos, por ejemplo: showPassword ? <EyeOff size={18} /> : <Eye size={18} /> */}
+                  {showPassword ? 'Ocultar' : 'Mostrar'}
+                </button>
+              </div>
             </div>
 
             {error && <p className="error">{error}</p>}
