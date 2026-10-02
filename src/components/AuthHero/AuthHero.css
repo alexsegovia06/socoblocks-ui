@@ -1,0 +1,120 @@
+.auth-hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 38px;
+  overflow: hidden;
+  color: #fff;
+  background: linear-gradient(135deg, #a93a36 0%, #bf433f 45%, #6c4a5c 78%, #3f4d6e 100%);
+}
+
+.auth-hero__pill {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.2);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.auth-hero__title {
+  margin-top: 28px;
+  font-size: 38px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.8px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+}
+
+.auth-hero__text {
+  margin-top: 18px;
+  max-width: 440px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.auth-hero__deco {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.auth-hero__block {
+  position: absolute;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.auth-hero__block--top {
+  right: 34px;
+  bottom: 140px;
+  width: 98px;
+  height: 66px;
+  border: 14px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+}
+
+.auth-hero__block--bottom {
+  right: 10px;
+  bottom: 0;
+  width: 130px;
+  height: 130px;
+  border-radius: 18px 18px 0 0;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.auth-hero__block--tall {
+  right: 86px;
+  bottom: -30px;
+  width: 98px;
+  height: 200px;
+  border: 14px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+}
+
+.auth-hero__footer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: auto;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.auth-hero__avatar {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.28);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.auth-hero__footer strong {
+  display: block;
+  font-size: 14px;
+}
+
+.auth-hero__footer small {
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 800px) {
+  .auth-hero {
+    padding: 28px;
+  }
+  .auth-hero__title {
+    font-size: 30px;
+  }
+  .auth-hero__deco {
+    display: none;
+  }
+}

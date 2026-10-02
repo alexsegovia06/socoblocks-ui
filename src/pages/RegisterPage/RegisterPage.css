@@ -1,0 +1,77 @@
+.register__form {
+  margin-top: 4px;
+  gap: 16px;
+}
+
+.register__roles {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.register__roles-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.register__role {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 14px 14px 12px;
+  border: 1.5px solid var(--ib-border);
+  border-radius: 12px;
+  background: #fff;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.register__role input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.register__role--selected {
+  border-color: var(--ib-red);
+  background: #fdf5f4;
+}
+
+.register__radio {
+  width: 15px;
+  height: 15px;
+  margin-bottom: 14px;
+  border: 1.5px solid #6b7280;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.register__role--selected .register__radio {
+  border-color: var(--ib-ink);
+  box-shadow: inset 0 0 0 3px #fff;
+  background: var(--ib-ink);
+}
+
+.register__role-icon {
+  position: absolute;
+  top: 13px;
+  right: 14px;
+  color: #6b7280;
+}
+
+.register__role--selected .register__role-icon {
+  color: var(--ib-red);
+}
+
+.register__role strong {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.register__role small {
+  font-size: 11.5px;
+  color: var(--ib-muted);
+}
