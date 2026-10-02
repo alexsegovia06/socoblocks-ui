@@ -54,7 +54,7 @@ export default function RegisterPage() {
                 className="auth-input"
                 value={nombre}
                 onChange={(e) => setNombre(e.target.value)}
-                placeholder="Ej. Roberto Martínez"
+                placeholder="Ej. Elihú Ibarra"
                 autoComplete="name"
                 required
               />
@@ -70,7 +70,7 @@ export default function RegisterPage() {
                 type="email"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                placeholder="tu@correo.com"
+                placeholder="elihuibah@gmail.com"
                 autoComplete="email"
                 minLength={3}
                 maxLength={50}

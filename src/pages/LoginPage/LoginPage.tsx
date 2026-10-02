@@ -8,7 +8,7 @@ import './AuthPages.css'
 
 export default function LoginPage() {
   const { login } = useAuth()
-  // El campo "Correo electrónico" del diseño se envía como `username` (es lo que recibe /api/auth/login).
+  //El campo "Correo electrónico" del diseño se envía como `username` (es lo que recibe /api/auth/login).
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
@@ -20,7 +20,6 @@ export default function LoginPage() {
     setLoading(true)
     try {
       await login(username, password)
-      // PublicOnly redirige a /user o /admin cuando user deja de ser null.
     } catch (err) {
       setError((err as Error).message)
       setLoading(false)
