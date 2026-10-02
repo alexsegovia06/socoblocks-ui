@@ -18,14 +18,11 @@ export default function Profile() {
 
   return (
     <div className="card">
-      <p className="muted">Response from /api/user/me</p>
       <dl>
         <dt>Username</dt>
         <dd>{me.username}</dd>
         <dt>Role</dt>
         <dd>{me.role}</dd>
-        <dt>Token expires</dt>
-        <dd>{new Date(me.expiresAt).toLocaleTimeString()}</dd>
       </dl>
     </div>
   )
