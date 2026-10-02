@@ -18,7 +18,7 @@ export default function Header({ links }: Props) {
           </span>
           <span className="header__brand-text">
             <span className="header__name">
-              Iconic<span>Brick</span>
+              Soco<span>Blocks</span>
             </span>
             <span className="header__tagline">Sets pop mexicanos</span>
           </span>

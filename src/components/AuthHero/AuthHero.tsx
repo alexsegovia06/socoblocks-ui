@@ -11,7 +11,7 @@ export default function AuthHero() {
 
       <h1 className="auth-hero__title">Construye la historia más viral de México.</h1>
       <p className="auth-hero__text">
-        Desde el río de San Carlos hasta los foros de la televisión nacional. Colecciona, arma y ríe pieza por pieza.
+        Desde el río de San Socoro hasta los foros de la televisión nacional. Colecciona, arma y ríe pieza por pieza.
       </p>
 
       <div className="auth-hero__deco" aria-hidden="true">

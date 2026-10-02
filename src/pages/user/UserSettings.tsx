@@ -1,8 +1,8 @@
 export default function UserSettings() {
   return (
     <>
-      <h1>Settings</h1>
-      <p className="muted">Your personal settings would go here.</p>
+      <h1>AJUSTES</h1>
+      <p className="muted">LOS AJUSTES DE CUENTA IRÁN AQUÍ.</p>
     </>
   )
 }

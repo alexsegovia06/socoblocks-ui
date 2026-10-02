@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="footer__inner">
         <div className="footer__copy">
           <span className="footer__logo">IB</span>
-          <span>© 2024 IcónicoBrick México. Homenajes con bloques plásticos coleccionables.</span>
+          <span>© 2026 SocoBlocks México. Homenajes con bloques plásticos coleccionables.</span>
         </div>
         <nav className="footer__links">
           <a href="#garantia">Garantía de Piezas</a>

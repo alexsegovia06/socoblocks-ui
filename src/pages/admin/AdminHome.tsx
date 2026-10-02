@@ -5,7 +5,7 @@ export default function AdminHome() {
     <>
       <h1>ADMINISTRADOR VISTA</h1>
       <p className="muted">
-        AQUÍ ESTARÁ NUESTRA APLICACIÓN Y LA VISTA DESDE UN ADMINISTRADOR.
+        AQUÍ ESTARÁ NUESTRA APLICACIÓN Y LA VISTA DESDE UN ADMIN.
       </p>
       <Profile />
     </>
