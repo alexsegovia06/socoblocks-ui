@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer__inner">
         <div className="footer__copy">
-          <span className="footer__logo">IB</span>
+          <span className="footer__logo">SB</span>
           <span>© 2026 SocoBlocks México. Homenajes con bloques plásticos coleccionables.</span>
         </div>
         <nav className="footer__links">
