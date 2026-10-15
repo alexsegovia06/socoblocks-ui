@@ -1,4 +1,5 @@
-export type Role = 'USER' | 'ADMIN'
+// El INVITADO (visitante sin cuenta) no es un rol: es cuando no hay sesión (user === null).
+export type Role = 'COLECCIONISTA' | 'VENDEDOR'
 
 export interface User {
   username: string
