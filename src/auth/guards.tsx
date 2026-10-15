@@ -3,7 +3,7 @@ import type { Role } from '../types.ts'
 import { useAuth } from './AuthContext.tsx'
 
 export function homeFor(role: Role) {
-  return role === 'ADMIN' ? '/admin' : '/user'
+  return role === 'VENDEDOR' ? '/vendedor' : '/'
 }
 
 export function RequireRole({ role }: { role: Role }) {
@@ -23,5 +23,5 @@ export function PublicOnly() {
 
 export function Redirect() {
   const { user } = useAuth()
-  return <Navigate to={user ? homeFor(user.role) : '/login'} replace />
+  return <Navigate to={user ? homeFor(user.role) : '/'} replace />
 }
