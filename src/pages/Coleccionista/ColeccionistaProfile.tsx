@@ -1,9 +1,9 @@
 import Profile from '../../components/Profile.tsx'
 
-export default function UserProfile() {
+export default function ColeccionistaProfile() {
   return (
     <>
-      <h1>PERFIL</h1>
+      <h1>Perfil</h1>
       <Profile />
     </>
   )
