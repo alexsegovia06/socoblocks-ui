@@ -3,23 +3,25 @@ import { Heart, Store, UserPlus } from 'lucide-react'
 import AuthHero from "../../components/AuthHero/AuthHero.tsx";
 import AuthTabs from "../../components/AuthTabs/AuthTabs.tsx"
 import { useAuth } from '../../auth/AuthContext'
+import type { Role } from '../../types.ts'
 import '../LoginPage/AuthPages.css'
 import './RegisterPage.css'
 
-type Participacion = 'coleccionista' | 'vendedor'
+// Roles que el backend permite autoasignarse al registrarse
+type Participacion = Exclude<Role, 'ADMIN'>
 
 const OPCIONES = [
-  { value: 'coleccionista', titulo: 'Coleccionista', descripcion: 'Comprar sets y armar', Icon: Heart },
-  { value: 'vendedor', titulo: 'Vendedor', descripcion: 'Publicar mis propios MOCs', Icon: Store },
+  { value: 'COLECCIONISTA', titulo: 'Coleccionista', descripcion: 'Comprar sets y armar', Icon: Heart },
+  { value: 'VENDEDOR', titulo: 'Vendedor', descripcion: 'Publicar mis propios MOCs', Icon: Store },
 ] as const
 
 export default function RegisterPage() {
   const { register } = useAuth()
-  // TODO: nombre y participación no se envían todavía: RegisterRequest del backend solo recibe username y password.
+  // TODO: nombre no se envía todavía: RegisterRequest del backend solo recibe username, password y role.
   const [nombre, setNombre] = useState('')
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [participacion, setParticipacion] = useState<Participacion>('coleccionista')
+  const [participacion, setParticipacion] = useState<Participacion>('COLECCIONISTA')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
@@ -28,8 +30,8 @@ export default function RegisterPage() {
     setError('')
     setLoading(true)
     try {
-      await register(username, password)
-      // register hace login y PublicOnly redirige a /user.
+      await register(username, password, participacion)
+      // register hace login y PublicOnly redirige según el rol (homeFor).
     } catch (err) {
       setError((err as Error).message)
       setLoading(false)

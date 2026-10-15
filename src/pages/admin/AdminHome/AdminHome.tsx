@@ -1,4 +1,4 @@
-import Profile from '../../components/Profile.tsx'
+import Profile from '../../../components/Profile.tsx'
 
 export default function AdminHome() {
   return (

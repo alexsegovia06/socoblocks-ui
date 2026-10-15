@@ -1,0 +1,75 @@
+.seller-stat-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 30px;
+  border: 1px solid var(--ib-border);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(22, 25, 44, 0.04);
+}
+
+.seller-stat-card__label {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #8a94a6;
+}
+
+.seller-stat-card__value {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.seller-stat-card__value strong {
+  font-size: 38px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+
+.seller-stat-card__value span {
+  font-size: 15px;
+  color: #8a94a6;
+}
+
+.seller-stat-card__footer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.seller-stat-card__icon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 62px;
+  height: 62px;
+  border-radius: 16px;
+}
+
+.seller-stat-card--green .seller-stat-card__icon {
+  background: #e8f6ee;
+  color: #2f9a63;
+}
+
+.seller-stat-card--slate .seller-stat-card__icon {
+  background: #eef1f5;
+  color: #34495e;
+}
+
+.seller-stat-card--amber .seller-stat-card__icon {
+  background: #fdf4dd;
+  color: #e3a33b;
+}
+
+.seller-stat-card--amber .seller-stat-card__value strong {
+  color: #e3a33b;
+}
