@@ -16,7 +16,6 @@ const OPCIONES_CATEGORIA = [
 ]
 
 export default function Filtros({ filtros, onChange, onLimpiar }: Props) {
-  // "Todas" está marcada cuando no hay ninguna categoría elegida.
   const seleccionadas = filtros.categorias.length === 0 ? ['todas'] : filtros.categorias
 
   function toggleCategoria(value: string) {

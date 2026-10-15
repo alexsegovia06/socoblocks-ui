@@ -38,7 +38,6 @@ export const CATEGORIAS: Categoria[] = [
   { id: 'entrevistas', nombre: 'Entrevistas de Leyenda', etiqueta: 'Entrevistas' },
 ]
 
-// TODO: reemplazar por la petición al backend cuando exista el endpoint de sets.
 export const SETS: SetColeccionable[] = [
   { id: 1, nombre: 'La caída de Edgar', categoria: 'clasicos', piezas: 350, precio: 899, stock: 15, rating: 5, imagen: '/sets/edgar.png' },
   { id: 2, nombre: 'Se Vale: La Tirolesa', categoria: 'tv', piezas: 420, precio: 1099, stock: 3, rating: 5, imagen: '/sets/se-vale.png' },
@@ -46,7 +45,6 @@ export const SETS: SetColeccionable[] = [
   { id: 4, nombre: 'El Cacahuatazo', categoria: 'tv', piezas: 180, precio: 550, stock: 25, rating: 5, imagen: '/sets/cacahuatazo.png' },
 ]
 
-// Textos del banner principal. Se editan aquí.
 export const HERO_DESTACADO = {
   setId: 1,
   etiqueta: 'Set del año 2026 • Edición limitada',

@@ -2,8 +2,14 @@ import { Navigate, Outlet } from 'react-router'
 import type { Role } from '../types.ts'
 import { useAuth } from './AuthContext.tsx'
 
+const HOME_BY_ROLE: Record<Role, string> = {
+  COLECCIONISTA: '/',
+  VENDEDOR: '/vendedor',
+  ADMIN: '/',
+}
+
 export function homeFor(role: Role) {
-  return role === 'VENDEDOR' ? '/vendedor' : '/'
+  return HOME_BY_ROLE[role] ?? '/'
 }
 
 export function RequireRole({ role }: { role: Role }) {

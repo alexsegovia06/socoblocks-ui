@@ -12,7 +12,6 @@ interface Props {
 }
 
 export default function SetCard({ set, onAgregar }: Props) {
-  // Si la imagen no existe o falla, el espacio queda en blanco.
   const [sinImagen, setSinImagen] = useState(false)
   const categoria = CATEGORIAS.find((c) => c.id === set.categoria)
 
