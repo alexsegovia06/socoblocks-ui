@@ -2,7 +2,6 @@ import { Navigate, Outlet } from 'react-router'
 import type { Role } from '../types.ts'
 import { useAuth } from './AuthContext.tsx'
 
-// Después de iniciar sesión: el vendedor va a su panel y el coleccionista al catálogo ("/").
 export function homeFor(role: Role) {
   return role === 'VENDEDOR' ? '/vendedor' : '/'
 }
