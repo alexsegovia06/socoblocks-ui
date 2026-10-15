@@ -2,8 +2,8 @@ export type CategoriaId = 'clasicos' | 'tv' | 'entrevistas'
 
 export interface Categoria {
   id: CategoriaId
-  nombre: string // nombre completo (filtros)
-  etiqueta: string // nombre corto (card)
+  nombre: string
+  etiqueta: string
 }
 
 export interface SetColeccionable {
@@ -14,12 +14,11 @@ export interface SetColeccionable {
   precio: number
   stock: number
   rating: number
-  emoji: string // se muestra si no hay imagen
-  imagen?: string // ruta dentro de /public, por ejemplo /sets/edgar.png
+  imagen?: string
 }
 
 export interface FiltrosState {
-  categorias: CategoriaId[] // vacío = todas las categorías
+  categorias: CategoriaId[]
   precioMax: number
   soloStock: boolean
 }
@@ -41,10 +40,10 @@ export const CATEGORIAS: Categoria[] = [
 
 // TODO: reemplazar por la petición al backend cuando exista el endpoint de sets.
 export const SETS: SetColeccionable[] = [
-  { id: 1, nombre: 'La caída de Edgar', categoria: 'clasicos', piezas: 350, precio: 899, stock: 15, rating: 5, emoji: '🪵🌊', imagen: '/sets/edgar.png' },
-  { id: 2, nombre: 'Se Vale: La Tirolesa', categoria: 'tv', piezas: 420, precio: 1099, stock: 3, rating: 5, emoji: '📺🎪', imagen: '/sets/se-vale.png' },
-  { id: 3, nombre: 'El Ferras', categoria: 'entrevistas', piezas: 200, precio: 649, stock: 0, rating: 5, emoji: '🎙️⚖️', imagen: '/sets/ferras.png' },
-  { id: 4, nombre: 'El Cacahuatazo', categoria: 'tv', piezas: 180, precio: 550, stock: 25, rating: 5, emoji: '🥜🎬', imagen: '/sets/cacahuatazo.png' },
+  { id: 1, nombre: 'La caída de Edgar', categoria: 'clasicos', piezas: 350, precio: 899, stock: 15, rating: 5, imagen: '/sets/edgar.png' },
+  { id: 2, nombre: 'Se Vale: La Tirolesa', categoria: 'tv', piezas: 420, precio: 1099, stock: 3, rating: 5, imagen: '/sets/se-vale.png' },
+  { id: 3, nombre: 'El Ferras', categoria: 'entrevistas', piezas: 200, precio: 649, stock: 0, rating: 5, imagen: '/sets/ferras.png' },
+  { id: 4, nombre: 'El Cacahuatazo', categoria: 'tv', piezas: 180, precio: 550, stock: 25, rating: 5, imagen: '/sets/cacahuatazo.png' },
 ]
 
 // Textos del banner principal. Se editan aquí.
