@@ -5,7 +5,7 @@ import { useAuth } from './AuthContext.tsx'
 export function homeFor(role: Role) {
   if (role === 'ADMIN') return '/admin/dashboard'
   if (role === 'VENDEDOR') return '/seller/dashboard'
-  return '/user'
+  return '/'
 }
 
 export function RequireRole({ roles }: { roles: Role[] }) {
@@ -25,5 +25,5 @@ export function PublicOnly() {
 
 export function Redirect() {
   const { user } = useAuth()
-  return <Navigate to={user ? homeFor(user.role) : '/login'} replace />
+  return <Navigate to={user ? homeFor(user.role) : '/'} replace />
 }

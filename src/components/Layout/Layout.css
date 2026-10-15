@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 
+/* Variables propias de IconicBrick (prefijo --ib-) para no chocar con las de index.css */
 .layout {
   --ib-red: #b8413d;
   --ib-red-dark: #a23733;
@@ -8,16 +9,27 @@
   --ib-field: #f4f5f7;
   --ib-border: #e5e7eb;
 
-  min-height: 100vh;
+  /* La pantalla se divide en header / contenido / footer. Header y footer no se mueven. */
   display: flex;
   flex-direction: column;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
   background: #f7f8fa;
   color: var(--ib-ink);
   font-family: 'Poppins', system-ui, sans-serif;
 }
 
+.layout > header,
+.layout > footer {
+  flex: none;
+}
+
+/* Solo esta zona hace scroll */
 .layout__content {
   flex: 1;
   display: flex;
   flex-direction: column;
+  min-height: 0;
+  overflow-y: auto;
 }

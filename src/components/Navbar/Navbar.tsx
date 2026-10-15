@@ -30,7 +30,7 @@ export default function Navbar({ links }: Props) {
             </NavLink>
           ))
         ) : (
-          <Link to="/user" className="navbar__link">
+          <Link to="/" className="navbar__link">
             <LayoutGrid size={16} />
             Catálogo
           </Link>
