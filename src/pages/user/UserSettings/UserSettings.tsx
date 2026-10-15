@@ -1,4 +1,4 @@
-export default function ColeccionistaSettings() {
+export default function UserSettings() {
   return (
     <>
       <h1>Ajustes</h1>

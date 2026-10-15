@@ -1,0 +1,58 @@
+/* El Layout limita .main a 40rem; el dashboard necesita el ancho completo */
+.main:has(> .admin-dashboard) {
+  max-width: 1280px;
+  padding: 44px 36px 44px;
+}
+
+.admin-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.admin-dashboard__header h1 {
+  margin: 0;
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+}
+
+.admin-dashboard__header p {
+  font-size: 15.5px;
+  color: #4b5567;
+}
+
+.admin-dashboard__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.admin-dashboard__trend {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #2f9a63;
+}
+
+.admin-dashboard__actions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+@media (max-width: 1000px) {
+  .admin-dashboard__stats,
+  .admin-dashboard__actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .main:has(> .admin-dashboard) {
+    padding: 28px 16px;
+  }
+  .admin-dashboard__header h1 {
+    font-size: 30px;
+  }
+}

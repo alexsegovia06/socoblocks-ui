@@ -1,4 +1,4 @@
-export default function VendedorProductos() {
+export default function SellerProducts() {
   return (
     <>
       <h1>Productos</h1>

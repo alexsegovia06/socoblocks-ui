@@ -1,12 +1,12 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from 'react'
 import { api, ApiError } from '../api.ts'
-import type { User } from '../types.ts'
+import type { Role, User } from '../types.ts'
 import { readToken } from './jwt.ts'
 
 interface AuthValue {
   user: User | null
   login: (username: string, password: string) => Promise<void>
-  register: (username: string, password: string) => Promise<void>
+  register: (username: string, password: string, role: Role) => Promise<void>
   logout: () => void
   authFetch: <T>(path: string) => Promise<T>
 }
@@ -38,8 +38,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     saveToken(res.accessToken)
   }
 
-  async function register(username: string, password: string) {
-    await api('/api/auth/register', { method: 'POST', body: { username, password } })
+  async function register(username: string, password: string, role: Role) {
+    await api('/api/auth/register', { method: 'POST', body: { username, password, role } })
     await login(username, password)
   }
 
