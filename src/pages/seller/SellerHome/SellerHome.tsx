@@ -1,11 +1,15 @@
+import { Link } from 'react-router'
+import Profile from '../../../components/Profile.tsx'
 
 export default function SellerHome() {
   return (
     <>
-        <h1>VENDEDOR VISTA</h1>
-        <p className="muted">
-            AQUÍ ESTARÁ NUESTRA APLICACIÓN Y LA VISTA DESDE UN VENDEDOR.
-        </p>
+      <h1>Panel del vendedor</h1>
+      <p className="muted">
+        Solo los vendedores ven las páginas bajo /seller. Prueba abrir <Link to="/user">/user</Link> o{' '}
+        <Link to="/user/profile">/user/profile</Link>: te manda a tu dashboard.
+      </p>
+      <Profile />
     </>
   )
 }
