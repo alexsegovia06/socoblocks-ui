@@ -1,55 +1,61 @@
 import { Route, Routes } from 'react-router'
 import { PublicOnly, Redirect, RequireRole } from './auth/guards.tsx'
 import Layout from './components/Layout/Layout.tsx'
+import CatalogPage from './pages/CatalogPage/CatalogPage.tsx'
 import LoginPage from './pages/LoginPage/LoginPage.tsx'
 import RegisterPage from './pages/RegisterPage/RegisterPage.tsx'
-import UserHome from './pages/user/UserHome.tsx'
-import UserProfile from './pages/user/UserProfile.tsx'
-import UserSettings from './pages/user/UserSettings.tsx'
-import AdminHome from './pages/admin/AdminHome.tsx'
-import AdminUsers from './pages/admin/AdminUsers.tsx'
-import AdminSettings from './pages/admin/AdminSettings.tsx'
+import ColeccionistaHome from './pages/Coleccionista/ColeccionistaHome.tsx'
+import ColeccionistaProfile from './pages/Coleccionista/ColeccionistaProfile.tsx'
+import ColeccionistaSettings from './pages/Coleccionista/ColeccionistaSettings.tsx'
+import VendedorHome from './pages/Vendedor/VendedorHome.tsx'
+import VendedorProductos from './pages/Vendedor/VendedorProductos.tsx'
+import VendedorSettings from './pages/Vendedor/VendedorSettings.tsx'
 
-const userLinks = [
-  { to: '/user', label: 'Home' },
-  { to: '/user/profile', label: 'Profile' },
-  { to: '/user/settings', label: 'Settings' },
+const coleccionistaLinks = [
+    { to: '/', label: 'Catálogo' },
+    { to: '/coleccionista', label: 'Inicio' },
+    { to: '/coleccionista/profile', label: 'Perfil' },
+    { to: '/coleccionista/settings', label: 'Ajustes' },
 ]
 
-const adminLinks = [
-  { to: '/admin', label: 'Home' },
-  { to: '/admin/users', label: 'Users' },
-  { to: '/admin/settings', label: 'Settings' },
+const vendedorLinks = [
+    { to: '/', label: 'Catálogo' },
+    { to: '/vendedor', label: 'Inicio' },
+    { to: '/vendedor/productos', label: 'Productos' },
+    { to: '/vendedor/settings', label: 'Ajustes' },
 ]
 
 export default function App() {
-  return (
-    <Routes>
-      {/* Login y registro: mismo Header/Footer, sin links de sesión */}
-      <Route element={<Layout />}>
-        <Route element={<PublicOnly />}>
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-        </Route>
-      </Route>
+    return (
+        <Routes>
+            {/* Público: invitado, coleccionista y vendedor ven el catálogo */}
+            <Route element={<Layout />}>
+                <Route path="/" element={<CatalogPage />} />
 
-      <Route element={<RequireRole role="USER" />}>
-        <Route path="/user" element={<Layout links={userLinks} />}>
-          <Route index element={<UserHome />} />
-          <Route path="profile" element={<UserProfile />} />
-          <Route path="settings" element={<UserSettings />} />
-        </Route>
-      </Route>
+                {/* Login y registro: solo sin sesión (invitado) */}
+                <Route element={<PublicOnly />}>
+                    <Route path="/login" element={<LoginPage />} />
+                    <Route path="/register" element={<RegisterPage />} />
+                </Route>
+            </Route>
 
-      <Route element={<RequireRole role="ADMIN" />}>
-        <Route path="/admin" element={<Layout links={adminLinks} />}>
-          <Route index element={<AdminHome />} />
-          <Route path="users" element={<AdminUsers />} />
-          <Route path="settings" element={<AdminSettings />} />
-        </Route>
-      </Route>
+            <Route element={<RequireRole role="COLECCIONISTA" />}>
+                <Route path="/coleccionista" element={<Layout links={coleccionistaLinks} />}>
+                    <Route index element={<ColeccionistaHome />} />
+                    <Route path="profile" element={<ColeccionistaProfile />} />
+                    <Route path="settings" element={<ColeccionistaSettings />} />
+                </Route>
+            </Route>
 
-      <Route path="*" element={<Redirect />} />
-    </Routes>
-  )
+            <Route element={<RequireRole role="VENDEDOR" />}>
+                <Route path="/vendedor" element={<Layout links={vendedorLinks} />}>
+                    <Route index element={<VendedorHome />} />
+                    <Route path="productos" element={<VendedorProductos />} />
+                    <Route path="settings" element={<VendedorSettings />} />
+                </Route>
+            </Route>
+
+            <Route path="*" element={<Redirect />} />
+        </Routes>
+    )
 }
