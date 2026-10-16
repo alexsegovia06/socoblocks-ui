@@ -2,21 +2,17 @@ import { Navigate, Outlet } from 'react-router'
 import type { Role } from '../types.ts'
 import { useAuth } from './AuthContext.tsx'
 
-const HOME_BY_ROLE: Record<Role, string> = {
-  COLECCIONISTA: '/',
-  VENDEDOR: '/vendedor',
-  ADMIN: '/',
-}
-
 export function homeFor(role: Role) {
-  return HOME_BY_ROLE[role] ?? '/'
+  if (role === 'ADMIN') return '/admin/dashboard'
+  if (role === 'VENDEDOR') return '/seller/dashboard'
+  return '/'
 }
 
-export function RequireRole({ role }: { role: Role }) {
+export function RequireRole({ roles }: { roles: Role[] }) {
   const { user } = useAuth()
 
   if (!user) return <Navigate to="/login" replace />
-  if (user.role !== role) return <Navigate to={homeFor(user.role)} replace />
+  if (!roles.includes(user.role)) return <Navigate to={homeFor(user.role)} replace />
   return <Outlet />
 }
 

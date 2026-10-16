@@ -1,19 +1,19 @@
 import { Outlet } from 'react-router'
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
-import type { NavItem } from "../Navbar/Navbar.tsx";
 import './Layout.css'
 
 interface Props {
-  links?: NavItem[]
+  // Envuelve la página en <main className="main">. Las páginas a pantalla completa (catálogo) ponen su propio <main>.
+  contained?: boolean
 }
 
-export default function Layout({ links }: Props) {
+export default function Layout({ contained }: Props) {
   return (
     <div className="layout">
-      <Header links={links} />
+      <Header />
       <div className="layout__content">
-        {links ? (
+        {contained ? (
           <main className="main">
             <Outlet />
           </main>

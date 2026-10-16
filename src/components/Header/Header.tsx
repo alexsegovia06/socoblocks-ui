@@ -1,14 +1,9 @@
 import { Link } from 'react-router'
 import { Blocks } from 'lucide-react'
 import Navbar from "../Navbar/Navbar.tsx";
-import type { NavItem } from "../Navbar/Navbar.ts";
 import './Header.css'
 
-interface Props {
-  links?: NavItem[]
-}
-
-export default function Header({ links }: Props) {
+export default function Header() {
   return (
     <header className="site-header">
       <div className="header__inner">
@@ -24,7 +19,7 @@ export default function Header({ links }: Props) {
           </span>
         </Link>
 
-        <Navbar links={links} />
+        <Navbar />
       </div>
     </header>
   )

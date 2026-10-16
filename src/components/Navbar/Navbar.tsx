@@ -1,6 +1,7 @@
 import { Link, NavLink } from 'react-router'
 import { LayoutGrid, LogOut, Search, ShoppingBag, User } from 'lucide-react'
 import { useAuth } from "../../auth/AuthContext.tsx";
+import { NAV_LINKS } from './navLinks.ts'
 import './Navbar.css'
 
 export interface NavItem {
@@ -8,12 +9,9 @@ export interface NavItem {
   label: string
 }
 
-interface Props {
-  links?: NavItem[]
-}
-
-export default function Navbar({ links }: Props) {
+export default function Navbar() {
   const { user, logout } = useAuth()
+  const links = user ? NAV_LINKS[user.role] : null
 
   return (
     <nav className="navbar">
@@ -30,7 +28,7 @@ export default function Navbar({ links }: Props) {
             </NavLink>
           ))
         ) : (
-          <Link to="/user" className="navbar__link">
+          <Link to="/" className="navbar__link">
             <LayoutGrid size={16} />
             Catálogo
           </Link>

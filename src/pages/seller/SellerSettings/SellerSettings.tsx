@@ -1,4 +1,4 @@
-export default function VendedorSettings() {
+export default function SellerSettings() {
   return (
     <>
       <h1>Ajustes</h1>
