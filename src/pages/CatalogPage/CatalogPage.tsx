@@ -32,7 +32,7 @@ export default function CatalogPage() {
 
   return (
     <main className="catalogo">
-      {destacado && <Hero set={destacado} onComprar={agregar} />}
+      {destacado && <Hero set={destacado} />}
 
       <div className="catalogo__cuerpo">
         <Filtros filtros={filtros} onChange={setFiltros} onLimpiar={() => setFiltros(FILTROS_INICIALES)} />

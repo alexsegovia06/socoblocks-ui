@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router'
 import { ArrowRight, Award } from 'lucide-react'
 import { HERO_DESTACADO, formatoPrecio } from '../../data/sets.ts'
 import type { SetColeccionable } from '../../data/sets.ts'
@@ -6,10 +7,9 @@ import './Hero.css'
 
 interface Props {
   set: SetColeccionable
-  onComprar: (set: SetColeccionable) => void
 }
 
-export default function Hero({ set, onComprar }: Props) {
+export default function Hero({ set }: Props) {
   const [sinImagen, setSinImagen] = useState(false)
 
   return (
@@ -37,10 +37,10 @@ export default function Hero({ set, onComprar }: Props) {
             <small>Piezas:</small>
             <strong>{set.piezas} pcs</strong>
           </div>
-          <button type="button" className="banner__boton" onClick={() => onComprar(set)}>
+          <Link to={`/products/${set.id}`} className="banner__boton">
             Ver Set &amp; Comprar
             <ArrowRight size={16} />
-          </button>
+          </Link>
         </div>
       </div>
 
