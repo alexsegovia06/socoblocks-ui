@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router'
 import { Star } from 'lucide-react'
 import EtiquetaStock from '../EtiquetaStock/EtiquetaStock.tsx'
 import BotonAgregar from '../BotonAgregar/BotonAgregar.tsx'
@@ -30,7 +31,9 @@ export default function SetCard({ set, onAgregar }: Props) {
 
         <div className="set-card__body">
           <span className="set-card__categoria">{categoria?.etiqueta}</span>
-          <h3 className="set-card__nombre">{set.nombre}</h3>
+          <h3 className="set-card__nombre">
+            <Link to={`/products/${set.id}`}>{set.nombre}</Link>
+          </h3>
 
           <div className="set-card__rating" aria-label={`Calificación ${set.rating.toFixed(1)} de 5`}>
             {[1, 2, 3, 4, 5].map((n) => (

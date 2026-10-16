@@ -1,4 +1,5 @@
 .set-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -114,4 +115,27 @@
   font-size: 12px;
   font-weight: 500;
   color: var(--ib-muted, #6b7280);
+}
+
+.set-card__nombre a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* El enlace del nombre cubre toda la tarjeta para que cualquier clic abra el producto */
+.set-card__nombre a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.set-card:hover .set-card__nombre a {
+  color: var(--ib-red, #b8413d);
+}
+
+/* El botón Agregar queda por encima del enlace */
+.set-card__footer .boton-agregar {
+  position: relative;
+  z-index: 2;
 }

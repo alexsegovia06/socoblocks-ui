@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router'
 import { PublicOnly, Redirect, RequireRole } from './auth/guards.tsx'
 import Layout from './components/Layout/Layout.tsx'
 import CatalogPage from './pages/CatalogPage/CatalogPage.tsx'
+import ProductPage from './pages/ProductPage/ProductPage.tsx'
 import LoginPage from './pages/LoginPage/LoginPage.tsx'
 import RegisterPage from './pages/RegisterPage/RegisterPage.tsx'
 import UserHome from './pages/user/UserHome/UserHome.tsx'
@@ -15,34 +16,13 @@ import AdminHome from './pages/admin/AdminHome/AdminHome.tsx'
 import AdminDashboard from './pages/admin/AdminDashboard/AdminDashboard.tsx'
 import AdminSettings from './pages/admin/AdminSettings/AdminSettings.tsx'
 
-const userLinks = [
-  { to: '/', label: 'Catálogo' },
-  { to: '/user', label: 'Inicio' },
-  { to: '/user/profile', label: 'Perfil' },
-  { to: '/user/settings', label: 'Ajustes' },
-]
-
-const sellerLinks = [
-  { to: '/', label: 'Catálogo' },
-  { to: '/seller', label: 'Inicio' },
-  { to: '/seller/dashboard', label: 'Dashboard' },
-  { to: '/seller/products', label: 'Productos' },
-  { to: '/seller/settings', label: 'Ajustes' },
-]
-
-const adminLinks = [
-  { to: '/', label: 'Catálogo' },
-  { to: '/admin', label: 'Inicio' },
-  { to: '/admin/dashboard', label: 'Dashboard' },
-  { to: '/admin/settings', label: 'Ajustes' },
-]
-
 export default function App() {
   return (
     <Routes>
       {/* Público: invitado y cualquier rol ven el catálogo */}
       <Route element={<Layout />}>
         <Route path="/" element={<CatalogPage />} />
+        <Route path="/products/:id" element={<ProductPage />} />
 
         {/* Login y registro: solo sin sesión (invitado) */}
         <Route element={<PublicOnly />}>
@@ -52,7 +32,7 @@ export default function App() {
       </Route>
 
       <Route element={<RequireRole roles={['COLECCIONISTA']} />}>
-        <Route path="/user" element={<Layout links={userLinks} />}>
+        <Route path="/user" element={<Layout contained />}>
           <Route index element={<UserHome />} />
           <Route path="profile" element={<UserProfile />} />
           <Route path="settings" element={<UserSettings />} />
@@ -60,7 +40,7 @@ export default function App() {
       </Route>
 
       <Route element={<RequireRole roles={['VENDEDOR']} />}>
-        <Route path="/seller" element={<Layout links={sellerLinks} />}>
+        <Route path="/seller" element={<Layout contained />}>
           <Route index element={<SellerHome />} />
           <Route path="dashboard" element={<SellerDashboard />} />
           <Route path="products" element={<SellerProducts />} />
@@ -69,7 +49,7 @@ export default function App() {
       </Route>
 
       <Route element={<RequireRole roles={['ADMIN']} />}>
-        <Route path="/admin" element={<Layout links={adminLinks} />}>
+        <Route path="/admin" element={<Layout contained />}>
           <Route index element={<AdminHome />} />
           <Route path="dashboard" element={<AdminDashboard />} />
           <Route path="settings" element={<AdminSettings />} />
