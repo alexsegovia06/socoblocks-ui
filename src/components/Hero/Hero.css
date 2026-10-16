@@ -97,6 +97,7 @@
   font-family: inherit;
   font-size: 17px;
   font-weight: 700;
+  text-decoration: none;
   cursor: pointer;
   box-shadow: 0 10px 22px rgba(211, 47, 47, 0.4);
 }

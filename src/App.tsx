@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router'
+import { Navigate, Route, Routes } from 'react-router'
 import { PublicOnly, Redirect, RequireRole } from './auth/guards.tsx'
 import Layout from './components/Layout/Layout.tsx'
 import CatalogPage from './pages/CatalogPage/CatalogPage.tsx'
@@ -8,7 +8,6 @@ import RegisterPage from './pages/RegisterPage/RegisterPage.tsx'
 import UserHome from './pages/user/UserHome/UserHome.tsx'
 import UserProfile from './pages/user/UserProfile/UserProfile.tsx'
 import UserSettings from './pages/user/UserSettings/UserSettings.tsx'
-import SellerHome from './pages/seller/SellerHome/SellerHome.tsx'
 import SellerDashboard from './pages/seller/SellerDashboard/SellerDashboard.tsx'
 import SellerProducts from './pages/seller/SellerProducts/SellerProducts.tsx'
 import SellerSettings from './pages/seller/SellerSettings/SellerSettings.tsx'
@@ -41,7 +40,7 @@ export default function App() {
 
       <Route element={<RequireRole roles={['VENDEDOR']} />}>
         <Route path="/seller" element={<Layout contained />}>
-          <Route index element={<SellerHome />} />
+          <Route index element={<Navigate to="dashboard" replace />} />
           <Route path="dashboard" element={<SellerDashboard />} />
           <Route path="products" element={<SellerProducts />} />
           <Route path="settings" element={<SellerSettings />} />
