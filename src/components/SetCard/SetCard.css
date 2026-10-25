@@ -6,8 +6,10 @@
   border: 1px solid var(--ib-border, #e5e7eb);
   border-radius: 20px;
   background: #fff;
-  box-shadow: 0 6px 18px rgba(22, 25, 44, 0.06);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 6px 18px rgba(22, 25, 44, 0.0125);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .set-card:hover {
@@ -124,7 +126,7 @@
 
 /* El enlace del nombre cubre toda la tarjeta para que cualquier clic abra el producto */
 .set-card__nombre a::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   z-index: 1;
