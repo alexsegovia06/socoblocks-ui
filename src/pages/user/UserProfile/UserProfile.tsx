@@ -1,4 +1,4 @@
-import Profile from '../../../components/Profile.tsx'
+import Profile from "../../../components/Profile/Profile.tsx";
 
 export default function UserProfile() {
   return (
@@ -6,5 +6,5 @@ export default function UserProfile() {
       <h1>Perfil</h1>
       <Profile />
     </>
-  )
+  );
 }

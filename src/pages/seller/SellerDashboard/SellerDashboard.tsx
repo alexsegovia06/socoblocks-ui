@@ -1,8 +1,8 @@
-import { Clock, DollarSign, Package, TrendingUp, Truck } from 'lucide-react'
-import StatCard from './components/StatCard/StatCard.tsx'
-import StockAlert from './components/StockAlert/StockAlert.tsx'
-import ActionCard from './components/ActionCard/ActionCard.tsx'
-import './SellerDashboard.css'
+import { Clock, DollarSign, Package, TrendingUp, Truck } from "lucide-react";
+import StatCard from "../../../components/StatCard/StatCard.tsx";
+import StockAlert from "../../../components/StockAlert/StockAlert.tsx";
+import ActionCard from "../../../components/ActionCard/ActionCard.tsx";
+import "./SellerDashboard.css";
 
 export default function SellerDashboard() {
   return (
@@ -61,5 +61,5 @@ export default function SellerDashboard() {
         />
       </section>
     </div>
-  )
+  );
 }

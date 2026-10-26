@@ -1,4 +1,4 @@
-import Profile from '../../../components/Profile.tsx'
+import Profile from "../../../components/Profile/Profile.tsx";
 
 export default function AdminHome() {
   return (
@@ -9,5 +9,5 @@ export default function AdminHome() {
       </p>
       <Profile />
     </>
-  )
+  );
 }

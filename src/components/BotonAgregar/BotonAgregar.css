@@ -11,7 +11,7 @@
   font-size: 14px;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(211, 47, 47, 0.3);
+  box-shadow: 0 4px 10px rgba(211, 47, 47, 0.0125);
 }
 
 .boton-agregar:disabled {
