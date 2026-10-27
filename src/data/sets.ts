@@ -87,7 +87,7 @@ export const RESENAS: Resena[] = [
 
 // Textos del banner principal. Se editan aquí.
 export const HERO_DESTACADO = {
-  setId: 1,
+  setId: 4,
   etiqueta: 'Set del año 2026 • Edición limitada',
   frase: '"¡Ya güey, por favor!"',
   titulo: 'La Caída de Edgar',
