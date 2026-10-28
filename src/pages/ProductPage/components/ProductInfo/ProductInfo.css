@@ -211,6 +211,36 @@
   fill: var(--ib-red);
 }
 
+.product-info__coleccion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border: 2px solid var(--ib-border);
+  border-radius: 14px;
+  background: #fff;
+  color: var(--ib-ink);
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.product-info__coleccion:hover {
+  opacity: 1;
+  border-color: var(--ib-ink);
+}
+
+.product-info__coleccion--activo {
+  border-color: #2f9a63;
+  background: #eefaf3;
+  color: #1e6b3f;
+}
+
+.product-info__coleccion--activo:hover {
+  border-color: #2f9a63;
+}
+
 .product-info__garantia {
   display: flex;
   align-items: center;
