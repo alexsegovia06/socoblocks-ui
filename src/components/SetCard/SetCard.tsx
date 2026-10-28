@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { Link } from 'react-router'
 import { Star } from 'lucide-react'
-import EtiquetaStock from '../EtiquetaStock/EtiquetaStock.tsx'
-import BotonAgregar from '../BotonAgregar/BotonAgregar.tsx'
+import StockTag from '../StockTag/StockTag.tsx'
+import AddButton from '../AddButton/AddButton.tsx'
 import { CATEGORIAS, formatoPrecio } from '../../data/sets.ts'
 import type { SetColeccionable } from '../../data/sets.ts'
 import './SetCard.css'
@@ -24,7 +24,7 @@ export default function SetCard({ set, onAgregar }: Props) {
               <img src={set.imagen} alt={set.nombre} onError={() => setSinImagen(true)} />
           )}
           <div className="set-card__stock">
-            <EtiquetaStock stock={set.stock} />
+            <StockTag stock={set.stock} />
           </div>
           <span className="set-card__piezas">{set.piezas} pcs</span>
         </div>
@@ -53,7 +53,7 @@ export default function SetCard({ set, onAgregar }: Props) {
                 {formatoPrecio(set.precio)} <span>MXN</span>
               </strong>
             </div>
-            <BotonAgregar disabled={set.stock === 0} onClick={() => onAgregar(set)} />
+            <AddButton disabled={set.stock === 0} onClick={() => onAgregar(set)} />
           </div>
         </div>
       </article>

@@ -1,7 +1,7 @@
 import { Link, Navigate, useNavigate, useParams } from 'react-router'
 import { useAuth } from '../../auth/AuthContext.tsx'
 import { CATEGORIAS, RESENAS, SETS } from '../../data/sets.ts'
-import { useColeccion } from '../../coleccion/useColeccion.ts'
+import { useColection } from '../../colection/useColection.ts'
 import { useWishlist } from '../../wishlist/useWishlist.ts'
 import ProductGallery from './components/ProductGallery/ProductGallery.tsx'
 import ProductInfo from './components/ProductInfo/ProductInfo.tsx'
@@ -13,7 +13,7 @@ export default function ProductPage() {
   const { user } = useAuth()
   const navigate = useNavigate()
   const wishlist = useWishlist()
-  const coleccion = useColeccion()
+  const coleccion = useColection()
 
   // TODO: reemplazar por la petición al backend cuando exista el endpoint de sets.
   const set = SETS.find((s) => s.id === Number(id))
