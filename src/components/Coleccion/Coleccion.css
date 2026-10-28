@@ -1,0 +1,53 @@
+.coleccion__progreso {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.coleccion__barra {
+  height: 10px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e9edf3;
+}
+
+.coleccion__relleno {
+  height: 100%;
+  border-radius: 999px;
+  background: #2f9a63;
+  transition: width 0.3s ease;
+}
+
+.coleccion__porcentaje {
+  font-size: 13px;
+  color: var(--ib-muted);
+}
+
+/* Sobrescribe el estilo global de <dl> (grid de 2 columnas) */
+.coleccion__stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin: 0;
+}
+
+.coleccion__stat {
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: var(--ib-field);
+}
+
+.coleccion__stat dt {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #8a94a6;
+}
+
+.coleccion__stat dd {
+  margin: 4px 0 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ib-ink);
+}
