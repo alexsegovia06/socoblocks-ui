@@ -2,7 +2,7 @@ import { useState, type ReactNode } from 'react'
 import { Link } from 'react-router'
 import { CATEGORIAS, formatoPrecio } from '../../data/sets.ts'
 import type { SetColeccionable } from '../../data/sets.ts'
-import './SeccionPerfil.css'
+import './ProfileSection.css'
 
 // Piezas compartidas por las secciones del perfil (colección y wishlist):
 // la tarjeta con su título y la fila de un set.
@@ -15,7 +15,7 @@ interface SeccionProps {
   children: ReactNode
 }
 
-export default function SeccionPerfil({ id, titulo, icono, contador, children }: SeccionProps) {
+export default function ProfileSection({ id, titulo, icono, contador, children }: SeccionProps) {
   return (
     <section className="seccion-perfil" aria-labelledby={id}>
       <header className="seccion-perfil__head">

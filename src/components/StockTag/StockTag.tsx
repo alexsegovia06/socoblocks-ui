@@ -1,10 +1,10 @@
-import './EtiquetaStock.css'
+import './StockTag.css'
 
 interface Props {
   stock: number
 }
 
-export default function EtiquetaStock({ stock }: Props) {
+export default function StockTag({ stock }: Props) {
   const estado = stock === 0 ? 'agotado' : stock <= 5 ? 'ultimas' : 'disponible'
   const texto = stock === 0 ? 'Agotado' : stock <= 5 ? `¡Últimas ${stock} pzas!` : `Stock: ${stock}`
 

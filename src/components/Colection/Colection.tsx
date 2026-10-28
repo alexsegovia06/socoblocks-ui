@@ -1,13 +1,13 @@
 import { Link } from 'react-router'
 import { Blocks, X } from 'lucide-react'
-import SeccionPerfil, { FilaSet } from '../SeccionPerfil/SeccionPerfil.tsx'
+import ProfileSection, { FilaSet } from '../ProfileSection/ProfileSection.tsx'
 import { SETS, formatoPrecio } from '../../data/sets.ts'
 import type { SetColeccionable } from '../../data/sets.ts'
-import { useColeccion } from '../../coleccion/useColeccion.ts'
-import './Coleccion.css'
+import { useColection } from '../../colection/useColection.ts'
+import './Colection.css'
 
-export default function Coleccion() {
-  const { ids, remove } = useColeccion()
+export default function Colection() {
+  const { ids, remove } = useColection()
 
   // Los ids guardados que ya no existan en el catálogo simplemente no se cuentan ni se muestran
   const sets = ids
@@ -21,7 +21,7 @@ export default function Coleccion() {
   const valor = sets.reduce((suma, s) => suma + s.precio, 0)
 
   return (
-    <SeccionPerfil
+    <ProfileSection
       id="coleccion-titulo"
       titulo="Mi colección"
       icono={<Blocks size={18} />}
@@ -78,6 +78,6 @@ export default function Coleccion() {
           </ul>
         </>
       )}
-    </SeccionPerfil>
+    </ProfileSection>
   )
 }

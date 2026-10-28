@@ -1,4 +1,4 @@
-import Coleccion from "../../../components/Coleccion/Coleccion.tsx";
+import Colection from "../../../components/Colection/Colection.tsx";
 import Profile from "../../../components/Profile/Profile.tsx";
 import Wishlist from "../../../components/Wishlist/Wishlist.tsx";
 
@@ -7,7 +7,7 @@ export default function UserProfile() {
     <>
       <h1>Perfil</h1>
       <Profile />
-      <Coleccion />
+      <Colection />
       <Wishlist />
     </>
   );

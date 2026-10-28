@@ -1,14 +1,14 @@
 import { Heart, PackageCheck, X } from 'lucide-react'
-import EtiquetaStock from '../EtiquetaStock/EtiquetaStock.tsx'
-import SeccionPerfil, { FilaSet } from '../SeccionPerfil/SeccionPerfil.tsx'
+import StockTag from '../StockTag/StockTag.tsx'
+import ProfileSection, { FilaSet } from '../ProfileSection/ProfileSection.tsx'
 import { SETS } from '../../data/sets.ts'
 import type { SetColeccionable } from '../../data/sets.ts'
-import { useColeccion } from '../../coleccion/useColeccion.ts'
+import { useColection } from '../../colection/useColection.ts'
 import { useWishlist } from '../../wishlist/useWishlist.ts'
 
 export default function Wishlist() {
   const { ids, remove } = useWishlist()
-  const coleccion = useColeccion()
+  const coleccion = useColection()
 
   // Los ids guardados que ya no existan en el catálogo simplemente no se muestran
   const sets = ids
@@ -22,7 +22,7 @@ export default function Wishlist() {
   }
 
   return (
-    <SeccionPerfil
+    <ProfileSection
       id="wishlist-titulo"
       titulo="Mi wishlist"
       icono={<Heart size={18} />}
@@ -37,7 +37,7 @@ export default function Wishlist() {
         <ul className="seccion-perfil__lista">
           {sets.map((set) => (
             <FilaSet key={set.id} set={set}>
-              <EtiquetaStock stock={set.stock} />
+              <StockTag stock={set.stock} />
               <div className="fila-set__acciones">
                 <button
                   type="button"
@@ -61,6 +61,6 @@ export default function Wishlist() {
           ))}
         </ul>
       )}
-    </SeccionPerfil>
+    </ProfileSection>
   )
 }
