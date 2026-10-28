@@ -45,7 +45,7 @@ export const CATEGORIAS: Categoria[] = [
 // TODO: reemplazar por la petición al backend cuando exista el endpoint de sets.
 export const SETS: SetColeccionable[] = [
   {
-    id: 1, nombre: 'La caída de Edgar', categoria: 'clasicos', piezas: 350, precio: 899, stock: 15, rating: 5, resenas: 48,
+    id: 4, nombre: 'La caída de Edgar', categoria: 'clasicos', piezas: 350, precio: 899, stock: 15, rating: 5, resenas: 48,
     descripcion: 'Reconstruye el puente rústico sobre el río de San Carlos, el momento exacto donde Edgar suplica clemencia y el fatídico chapuzón con piezas de agua translúcida.',
     visual: ['🪵', '🌊'], imagen: '/sets/edgar.png',
   },
@@ -60,7 +60,7 @@ export const SETS: SetColeccionable[] = [
     visual: ['🎙️', '⚖️'], imagen: '/sets/ferras.png',
   },
   {
-    id: 4, nombre: 'El Cacahuatazo', categoria: 'tv', piezas: 180, precio: 550, stock: 25, rating: 5, resenas: 19,
+    id: 1, nombre: 'El Cacahuatazo', categoria: 'tv', piezas: 180, precio: 550, stock: 25, rating: 5, resenas: 19,
     descripcion: 'El escenario del cacahuatazo con cámara, claqueta y el proyectil más famoso de la televisión nacional.',
     visual: ['🥜', '🎬'], imagen: '/sets/cacahuatazo.png',
   },
