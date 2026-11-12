@@ -1,0 +1,86 @@
+.profile {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 30px;
+  border: 1px solid var(--ib-border);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(22, 25, 44, 0.04);
+}
+
+.profile__top {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile__avatar {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--ib-red);
+  color: #fff;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.profile__identity {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  min-width: 0;
+}
+
+.profile__name {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  overflow-wrap: anywhere;
+}
+
+.profile__role {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: #fdecec;
+  color: var(--ib-red-dark);
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+/* Sobrescribe el estilo global de <dl> (grid de 2 columnas) */
+.profile__details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--ib-border);
+}
+
+.profile__detail dt {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #8a94a6;
+}
+
+.profile__detail dd {
+  margin: 4px 0 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ib-ink);
+  overflow-wrap: anywhere;
+}

@@ -1,4 +1,4 @@
-import './ListadoOpciones.css'
+import './OpcionList.css'
 
 export interface Opcion {
   value: string
@@ -12,7 +12,7 @@ interface Props {
   onToggle: (value: string) => void
 }
 
-export default function ListadoOpciones({ titulo, opciones, seleccionadas, onToggle }: Props) {
+export default function OpcionList({ titulo, opciones, seleccionadas, onToggle }: Props) {
   return (
     <fieldset className="opciones">
       <legend className="opciones__titulo">{titulo}</legend>

@@ -1,8 +1,8 @@
 import { SlidersHorizontal } from 'lucide-react'
-import ListadoOpciones from '../ListadoOpciones/ListadoOpciones.tsx'
+import OpcionList from '../OpcionList/OpcionList.tsx'
 import { CATEGORIAS, PRECIO_MAX, PRECIO_MIN, formatoPrecio } from '../../data/sets.ts'
 import type { CategoriaId, FiltrosState } from '../../data/sets.ts'
-import './Filtros.css'
+import './Filters.css'
 
 interface Props {
   filtros: FiltrosState
@@ -15,7 +15,7 @@ const OPCIONES_CATEGORIA = [
   ...CATEGORIAS.map((c) => ({ value: c.id, label: c.nombre })),
 ]
 
-export default function Filtros({ filtros, onChange, onLimpiar }: Props) {
+export default function Filters({ filtros, onChange, onLimpiar }: Props) {
   // "Todas" está marcada cuando no hay ninguna categoría elegida.
   const seleccionadas = filtros.categorias.length === 0 ? ['todas'] : filtros.categorias
 
@@ -43,7 +43,7 @@ export default function Filtros({ filtros, onChange, onLimpiar }: Props) {
         </button>
       </div>
 
-      <ListadoOpciones
+      <OpcionList
         titulo="Categoría"
         opciones={OPCIONES_CATEGORIA}
         seleccionadas={seleccionadas}
@@ -73,7 +73,7 @@ export default function Filtros({ filtros, onChange, onLimpiar }: Props) {
         </div>
       </div>
 
-      <ListadoOpciones
+      <OpcionList
         titulo="Disponibilidad"
         opciones={[{ value: 'stock', label: 'Solo sets en stock' }]}
         seleccionadas={filtros.soloStock ? ['stock'] : []}

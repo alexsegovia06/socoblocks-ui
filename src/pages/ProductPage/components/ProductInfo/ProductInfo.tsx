@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Heart, Minus, Plus, ShieldCheck, ShoppingBag, Star } from 'lucide-react'
+import { Heart, Minus, PackageCheck, Plus, ShieldCheck, ShoppingBag, Star } from 'lucide-react'
 import { formatoPrecio } from '../../../../data/sets.ts'
 import type { SetColeccionable } from '../../../../data/sets.ts'
 import './ProductInfo.css'
@@ -8,11 +8,24 @@ interface Props {
   set: SetColeccionable
   categoria?: string
   onAgregar: (cantidad: number) => void
+  favorito?: boolean
+  // Si no se pasa, el corazón no se muestra
+  onToggleFavorito?: () => void
+  enColeccion?: boolean
+  // Si no se pasa, el botón "Ya lo tengo" no se muestra
+  onToggleColeccion?: () => void
 }
 
-export default function ProductInfo({ set, categoria, onAgregar }: Props) {
+export default function ProductInfo({
+  set,
+  categoria,
+  onAgregar,
+  favorito = false,
+  onToggleFavorito,
+  enColeccion = false,
+  onToggleColeccion,
+}: Props) {
   const [cantidad, setCantidad] = useState(1)
-  const [favorito, setFavorito] = useState(false)
 
   const agotado = set.stock === 0
   const estadoStock = agotado ? 'agotado' : set.stock <= 5 ? 'ultimas' : 'disponible'
@@ -84,16 +97,30 @@ export default function ProductInfo({ set, categoria, onAgregar }: Props) {
             Agregar al Carrito
           </button>
 
+          {onToggleFavorito && (
+            <button
+              type="button"
+              aria-label={favorito ? 'Quitar de mi wishlist' : 'Guardar en mi wishlist'}
+              aria-pressed={favorito}
+              className={`product-info__favorito${favorito ? ' product-info__favorito--activo' : ''}`}
+              onClick={onToggleFavorito}
+            >
+              <Heart size={24} />
+            </button>
+          )}
+        </div>
+
+        {onToggleColeccion && (
           <button
             type="button"
-            aria-label={favorito ? 'Quitar de favoritos' : 'Agregar a favoritos'}
-            aria-pressed={favorito}
-            className={`product-info__favorito${favorito ? ' product-info__favorito--activo' : ''}`}
-            onClick={() => setFavorito(!favorito)}
+            title={enColeccion ? 'Quitar de mi colección' : undefined}
+            className={`product-info__coleccion${enColeccion ? ' product-info__coleccion--activo' : ''}`}
+            onClick={onToggleColeccion}
           >
-            <Heart size={24} />
+            <PackageCheck size={20} />
+            {enColeccion ? 'En mi colección' : 'Ya lo tengo'}
           </button>
-        </div>
+        )}
 
         <p className="product-info__garantia">
           <ShieldCheck size={18} />

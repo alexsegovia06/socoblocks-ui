@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 import { useAuth } from '../../auth/AuthContext.tsx'
 import Hero from '../../components/Hero/Hero.tsx'
-import Filtros from '../../components/Filtros/Filtros.tsx'
+import Filters from '../../components/Filters/Filters.tsx'
 import SetsSection from '../../components/SetsSection/SetsSection.tsx'
 import { FILTROS_INICIALES, HERO_DESTACADO} from '../../data/sets.ts'
 import type { FiltrosState, SetColeccionable } from '../../data/sets.ts'
@@ -53,7 +53,7 @@ export default function CatalogPage() {
       {destacado && <Hero set={destacado} />}
 
       <div className="catalogo__cuerpo">
-        <Filtros filtros={filtros} onChange={setFiltros} onLimpiar={() => setFiltros(FILTROS_INICIALES)} />
+        <Filters filtros={filtros} onChange={setFiltros} onLimpiar={() => setFiltros(FILTROS_INICIALES)} />
         <SetsSection sets={visibles} onAgregar={agregar} />
       </div>
     </main>
