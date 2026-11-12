@@ -51,3 +51,54 @@
   font-weight: 700;
   color: var(--ib-ink);
 }
+
+@media (max-width: 1024px) {
+  .coleccion__stats {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .coleccion__stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .coleccion__stat dd {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 425px) {
+  .coleccion__stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .coleccion__stat {
+    padding: 12px 14px;
+  }
+
+  .coleccion__stat dt {
+    font-size: 10.5px;
+    letter-spacing: 0.4px;
+  }
+
+  .coleccion__stat dd {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 320px) {
+  .coleccion__stats {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .coleccion__barra {
+    height: 8px;
+  }
+
+  .coleccion__porcentaje {
+    font-size: 12px;
+  }
+}
