@@ -130,3 +130,66 @@
   opacity: 0.7;
   cursor: progress;
 }
+
+@media (max-width: 1024px) {
+  .settings__card {
+    padding: 26px;
+  }
+}
+
+@media (max-width: 768px) {
+  .settings {
+    gap: 18px;
+  }
+
+  .settings__card {
+    gap: 18px;
+    padding: 24px 22px;
+    border-radius: 16px;
+  }
+
+  .settings__form {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 425px) {
+  .settings__card {
+    padding: 20px 16px;
+  }
+
+  .settings__head h2 {
+    font-size: 16px;
+  }
+
+  .settings__input {
+    height: 44px;
+    padding: 0 14px;
+  }
+
+  .settings__submit {
+    align-self: stretch;
+    height: 44px;
+  }
+}
+
+@media (max-width: 320px) {
+  .settings__card {
+    padding: 18px 12px;
+  }
+
+  .settings__head h2 {
+    font-size: 15px;
+  }
+
+  .settings__input {
+    height: 42px;
+    padding: 0 12px;
+    font-size: 13.5px;
+  }
+
+  .settings__submit {
+    padding: 0 16px;
+    font-size: 14px;
+  }
+}
