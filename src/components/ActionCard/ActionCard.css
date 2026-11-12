@@ -65,3 +65,76 @@
 .action-card:hover .action-card__chevron {
   color: #34506b;
 }
+
+@media (max-width: 1024px) {
+  .action-card {
+    padding: 30px;
+    border-radius: 20px;
+  }
+
+  .action-card__title {
+    font-size: 23px;
+  }
+
+  .action-card__description {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .action-card {
+    padding: 26px 24px;
+    border-radius: 18px;
+  }
+
+  .action-card__icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 14px;
+  }
+
+  .action-card__title {
+    margin: 12px 0 8px;
+    font-size: 21px;
+  }
+}
+
+@media (max-width: 425px) {
+  .action-card {
+    gap: 12px;
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+
+  .action-card__icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+  }
+
+  .action-card__title {
+    font-size: 19px;
+  }
+
+  .action-card__description {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 320px) {
+  .action-card {
+    padding: 18px 12px;
+  }
+
+  .action-card__title {
+    font-size: 17px;
+  }
+
+  .action-card__description {
+    font-size: 13px;
+  }
+
+  .action-card__chevron {
+    display: none;
+  }
+}
