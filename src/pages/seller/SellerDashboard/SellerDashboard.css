@@ -41,18 +41,84 @@
   gap: 32px;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1024px) {
+  .main:has(> .seller-dashboard) {
+    padding: 36px 24px;
+  }
+
+  .seller-dashboard {
+    gap: 32px;
+  }
+
+  .seller-dashboard__header h1 {
+    font-size: 34px;
+  }
+
   .seller-dashboard__stats,
   .seller-dashboard__actions {
-    grid-template-columns: 1fr;
+    gap: 20px;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .main:has(> .seller-dashboard) {
-    padding: 28px 16px;
+    padding: 28px 20px;
   }
+
+  .seller-dashboard {
+    gap: 26px;
+  }
+
   .seller-dashboard__header h1 {
     font-size: 30px;
+  }
+
+  .seller-dashboard__header p {
+    font-size: 14.5px;
+  }
+
+  .seller-dashboard__stats,
+  .seller-dashboard__actions {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 425px) {
+  .main:has(> .seller-dashboard) {
+    padding: 22px 16px;
+  }
+
+  .seller-dashboard {
+    gap: 22px;
+  }
+
+  .seller-dashboard__header h1 {
+    font-size: 26px;
+    letter-spacing: -0.5px;
+  }
+
+  .seller-dashboard__header p {
+    font-size: 14px;
+  }
+
+  .seller-dashboard__stats,
+  .seller-dashboard__actions {
+    gap: 14px;
+  }
+}
+
+@media (max-width: 320px) {
+  .main:has(> .seller-dashboard) {
+    padding: 18px 12px;
+  }
+
+  .seller-dashboard__header h1 {
+    font-size: 23px;
+  }
+
+  .seller-dashboard__stats,
+  .seller-dashboard__actions {
+    gap: 12px;
   }
 }
