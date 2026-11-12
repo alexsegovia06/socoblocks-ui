@@ -20,3 +20,31 @@
 .etiqueta-stock--agotado {
   background: #e53935;
 }
+
+@media (max-width: 1024px) {
+  .etiqueta-stock {
+    padding: 4px 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .etiqueta-stock {
+    font-size: 11.5px;
+  }
+}
+
+@media (max-width: 425px) {
+  .etiqueta-stock {
+    padding: 3px 9px;
+    border-radius: 6px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 320px) {
+  .etiqueta-stock {
+    padding: 3px 8px;
+    font-size: 10.5px;
+    letter-spacing: 0;
+  }
+}

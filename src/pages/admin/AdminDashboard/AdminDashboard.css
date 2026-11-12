@@ -41,18 +41,84 @@
   gap: 32px;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1024px) {
+  .main:has(> .admin-dashboard) {
+    padding: 36px 24px;
+  }
+
+  .admin-dashboard {
+    gap: 32px;
+  }
+
+  .admin-dashboard__header h1 {
+    font-size: 34px;
+  }
+
   .admin-dashboard__stats,
   .admin-dashboard__actions {
-    grid-template-columns: 1fr;
+    gap: 20px;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .main:has(> .admin-dashboard) {
-    padding: 28px 16px;
+    padding: 28px 20px;
   }
+
+  .admin-dashboard {
+    gap: 26px;
+  }
+
   .admin-dashboard__header h1 {
     font-size: 30px;
+  }
+
+  .admin-dashboard__header p {
+    font-size: 14.5px;
+  }
+
+  .admin-dashboard__stats,
+  .admin-dashboard__actions {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 425px) {
+  .main:has(> .admin-dashboard) {
+    padding: 22px 16px;
+  }
+
+  .admin-dashboard {
+    gap: 22px;
+  }
+
+  .admin-dashboard__header h1 {
+    font-size: 26px;
+    letter-spacing: -0.5px;
+  }
+
+  .admin-dashboard__header p {
+    font-size: 14px;
+  }
+
+  .admin-dashboard__stats,
+  .admin-dashboard__actions {
+    gap: 14px;
+  }
+}
+
+@media (max-width: 320px) {
+  .main:has(> .admin-dashboard) {
+    padding: 18px 12px;
+  }
+
+  .admin-dashboard__header h1 {
+    font-size: 23px;
+  }
+
+  .admin-dashboard__stats,
+  .admin-dashboard__actions {
+    gap: 12px;
   }
 }

@@ -73,3 +73,76 @@
 .stat-card--amber .stat-card__value strong {
   color: #e3a33b;
 }
+
+@media (max-width: 1024px) {
+  .stat-card {
+    padding: 24px;
+  }
+
+  .stat-card__label {
+    font-size: 12px;
+  }
+
+  .stat-card__value strong {
+    font-size: 32px;
+  }
+
+  .stat-card__icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .stat-card {
+    padding: 22px;
+    border-radius: 16px;
+  }
+
+  .stat-card__value strong {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 425px) {
+  .stat-card {
+    gap: 12px;
+    padding: 18px 16px;
+  }
+
+  .stat-card__label {
+    font-size: 11px;
+    letter-spacing: 0.6px;
+  }
+
+  .stat-card__value strong {
+    font-size: 26px;
+  }
+
+  .stat-card__value span,
+  .stat-card__footer {
+    font-size: 13px;
+  }
+
+  .stat-card__icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 320px) {
+  .stat-card {
+    padding: 16px 12px;
+  }
+
+  .stat-card__value strong {
+    font-size: 22px;
+  }
+
+  .stat-card__icon {
+    width: 40px;
+    height: 40px;
+  }
+}

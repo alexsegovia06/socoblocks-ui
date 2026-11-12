@@ -25,3 +25,38 @@
   font-weight: 700;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
 }
+
+@media (max-width: 1024px) {
+  .tabs__item {
+    padding: 10px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .tabs {
+    border-radius: 12px;
+  }
+
+  .tabs__item {
+    border-radius: 9px;
+  }
+}
+
+@media (max-width: 425px) {
+  .tabs__item {
+    padding: 9px 0;
+    font-size: 13.5px;
+  }
+}
+
+@media (max-width: 320px) {
+  .tabs {
+    padding: 3px;
+    gap: 3px;
+  }
+
+  .tabs__item {
+    padding: 8px 0;
+    font-size: 13px;
+  }
+}

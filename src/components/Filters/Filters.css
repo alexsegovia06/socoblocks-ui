@@ -92,8 +92,49 @@
   color: #94a3b8;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
+  .filtros {
+    padding: 20px;
+    border-radius: 18px;
+  }
+
+  .filtros > * {
+    padding: 16px 0;
+  }
+
+  .filtros__titulo {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
   .filtros {
     position: static;
+  }
+}
+
+@media (max-width: 425px) {
+  .filtros {
+    padding: 18px 16px;
+    border-radius: 16px;
+  }
+
+  .filtros > * {
+    padding: 14px 0;
+  }
+
+  .filtros__titulo {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 320px) {
+  .filtros {
+    padding: 16px 12px;
+  }
+
+  .filtros__label {
+    font-size: 11px;
+    letter-spacing: 0.8px;
   }
 }

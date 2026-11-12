@@ -254,17 +254,45 @@
   color: #2f9a63;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1024px) {
+  .product-info {
+    gap: 18px;
+  }
+
+  .product-info__categoria {
+    font-size: 13px;
+  }
+
   .product-info__nombre {
-    font-size: 34px;
+    font-size: 38px;
   }
 
   .product-info__precio strong {
-    font-size: 32px;
+    font-size: 34px;
+  }
+
+  .product-info__descripcion {
+    padding: 20px;
+  }
+
+  .product-info__descripcion p {
+    font-size: 16px;
   }
 
   .product-info__datos {
-    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .product-info__datos > div {
+    padding: 14px;
+  }
+
+  .product-info__datos small {
+    font-size: 14px;
+  }
+
+  .product-info__datos strong {
+    font-size: 16px;
   }
 
   .product-info__acciones {
@@ -275,10 +303,159 @@
   .product-info__agregar {
     order: 3;
     flex-basis: 100%;
-    font-size: 18px;
+    padding: 16px 20px;
+    font-size: 19px;
   }
 
   .product-info__favorito {
+    width: 60px;
     margin-left: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-info__nombre {
+    font-size: 34px;
+  }
+
+  .product-info__precio strong {
+    font-size: 32px;
+  }
+
+  .product-info__agregar {
+    order: 0;
+    flex-basis: auto;
+  }
+
+  .product-info__favorito {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 425px) {
+  .product-info {
+    gap: 16px;
+  }
+
+  .product-info__top {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .product-info__categoria {
+    padding: 4px 12px;
+    font-size: 12px;
+  }
+
+  .product-info__rating {
+    font-size: 14px;
+  }
+
+  .product-info__nombre {
+    font-size: 27px;
+    letter-spacing: -0.6px;
+  }
+
+  .product-info__precio {
+    gap: 12px;
+    margin-top: -4px;
+  }
+
+  .product-info__precio strong {
+    font-size: 27px;
+  }
+
+  .product-info__precio span {
+    font-size: 14px;
+  }
+
+  .product-info__descripcion {
+    padding: 16px;
+    border-radius: 14px;
+  }
+
+  .product-info__descripcion h2 {
+    font-size: 14px;
+  }
+
+  .product-info__descripcion p {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .product-info__datos {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .product-info__compra {
+    gap: 14px;
+    padding-top: 18px;
+  }
+
+  .product-info__agregar {
+    order: 3;
+    flex-basis: 100%;
+    padding: 14px 18px;
+    font-size: 17px;
+  }
+
+  .product-info__favorito {
+    width: 54px;
+    margin-left: auto;
+  }
+
+  .product-info__cantidad button {
+    width: 46px;
+  }
+
+  .product-info__cantidad span {
+    min-width: 48px;
+    font-size: 16px;
+  }
+
+  .product-info__coleccion {
+    padding: 12px 16px;
+    font-size: 15px;
+  }
+
+  .product-info__garantia {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 320px) {
+  .product-info__nombre {
+    font-size: 23px;
+  }
+
+  .product-info__precio strong {
+    font-size: 23px;
+  }
+
+  .product-info__agregar {
+    padding: 12px 14px;
+    font-size: 15px;
+  }
+
+  .product-info__cantidad button {
+    width: 40px;
+  }
+
+  .product-info__cantidad span {
+    min-width: 40px;
+  }
+
+  .product-info__favorito {
+    width: 48px;
+  }
+
+  .product-info__coleccion {
+    font-size: 14px;
+  }
+
+  .product-info__garantia {
+    font-size: 13px;
+    text-align: center;
   }
 }
