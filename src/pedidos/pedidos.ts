@@ -1,0 +1,61 @@
+// Pedidos confirmados en el checkout, guardados en el navegador por usuario.
+// TODO: reemplazar por POST /api/pedidos (y GET para listarlos) cuando exista el endpoint.
+
+export type MetodoPago = 'tarjeta' | 'transferencia' | 'oxxo'
+
+export interface DatosEnvio {
+  nombre: string
+  telefono: string
+  calle: string
+  colonia: string
+  ciudad: string
+  estado: string
+  cp: string
+}
+
+export interface LineaPedido {
+  setId: number
+  nombre: string
+  precio: number
+  cantidad: number
+  imagen?: string
+}
+
+export interface Pedido {
+  folio: string
+  fecha: string // ISO
+  lineas: LineaPedido[]
+  total: number
+  envio: DatosEnvio
+  metodoPago: MetodoPago
+  estado: 'PENDIENTE' | 'ENVIADO' | 'ENTREGADO'
+}
+
+const clave = (username: string) => `pedidos:${username}`
+
+export function leerPedidos(username: string): Pedido[] {
+  try {
+    const datos: unknown = JSON.parse(localStorage.getItem(clave(username)) ?? '[]')
+    return Array.isArray(datos) ? (datos as Pedido[]) : []
+  } catch {
+    return []
+  }
+}
+
+// Folio corto y legible, p. ej. SB-7K3F9Q
+function nuevoFolio() {
+  return `SB-${Date.now().toString(36).slice(-4).toUpperCase()}${Math.random().toString(36).slice(2, 4).toUpperCase()}`
+}
+
+export function crearPedido(
+  username: string,
+  datos: Omit<Pedido, 'folio' | 'fecha' | 'estado'>,
+): Pedido {
+  const pedido: Pedido = { ...datos, folio: nuevoFolio(), fecha: new Date().toISOString(), estado: 'PENDIENTE' }
+  try {
+    localStorage.setItem(clave(username), JSON.stringify([pedido, ...leerPedidos(username)]))
+  } catch {
+    // Si no se puede guardar, el pedido igual se confirma en pantalla
+  }
+  return pedido
+}

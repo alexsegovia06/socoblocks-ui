@@ -3,6 +3,7 @@ import { useAuth } from '../../auth/AuthContext.tsx'
 import { CATEGORIAS, RESENAS } from '../../data/sets.ts'
 import { useCatalogo } from '../../catalogo/useCatalogo.ts'
 import { useColection } from '../../colection/useColection.ts'
+import { useCarrito } from '../../carrito/CarritoContext.tsx'
 import { useWishlist } from '../../wishlist/useWishlist.ts'
 import ProductGallery from './components/ProductGallery/ProductGallery.tsx'
 import ProductInfo from './components/ProductInfo/ProductInfo.tsx'
@@ -16,6 +17,7 @@ export default function ProductPage() {
   const wishlist = useWishlist()
   const coleccion = useColection()
   const { sets, cargando, error } = useCatalogo()
+  const carrito = useCarrito()
 
   // Mismos datos que el catálogo: el set se busca por su id del backend
   const set = sets.find((s) => s.id === Number(id))
@@ -36,7 +38,9 @@ export default function ProductPage() {
       navigate('/login')
       return
     }
-    console.log('Agregar al carrito:', set?.nombre, cantidad)
+    if (!set) return
+    carrito.agregar(set, cantidad)
+    carrito.abrir()
   }
 
   function alternarFavorito() {

@@ -5,6 +5,8 @@ import CatalogPage from './pages/CatalogPage/CatalogPage.tsx'
 import ProductPage from './pages/ProductPage/ProductPage.tsx'
 import LoginPage from './pages/LoginPage/LoginPage.tsx'
 import RegisterPage from './pages/RegisterPage/RegisterPage.tsx'
+import CartPage from './pages/CartPage/CartPage.tsx'
+import CheckoutPage from './pages/CheckoutPage/CheckoutPage.tsx'
 import UserHome from './pages/user/UserHome/UserHome.tsx'
 import UserProfile from './pages/user/UserProfile/UserProfile.tsx'
 import UserSettings from './pages/user/UserSettings/UserSettings.tsx'
@@ -27,6 +29,12 @@ export default function App() {
         <Route element={<PublicOnly />}>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
+        </Route>
+
+        {/* Carrito y pago: cualquier rol con sesión */}
+        <Route element={<RequireRole roles={['COLECCIONISTA', 'VENDEDOR', 'ADMIN']} />}>
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
         </Route>
       </Route>
 

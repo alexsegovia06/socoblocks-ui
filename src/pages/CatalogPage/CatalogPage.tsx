@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router'
 import { useAuth } from '../../auth/AuthContext.tsx'
 import { useCatalogo } from '../../catalogo/useCatalogo.ts'
+import { useCarrito } from '../../carrito/CarritoContext.tsx'
 import Hero from '../../components/Hero/Hero.tsx'
 import Filters from '../../components/Filters/Filters.tsx'
 import SetsSection from '../../components/SetsSection/SetsSection.tsx'
@@ -14,6 +15,7 @@ export default function CatalogPage() {
   const navigate = useNavigate()
   const [filtros, setFiltros] = useState<FiltrosState>(FILTROS_INICIALES)
   const { sets, cargando, error, recargar } = useCatalogo()
+  const carrito = useCarrito()
 
   const destacado = sets.find((s) => s.id === HERO_DESTACADO.setId)
 
@@ -29,7 +31,8 @@ export default function CatalogPage() {
       navigate('/login')
       return
     }
-    console.log('Agregar al carrito:', set.nombre)
+    carrito.agregar(set)
+    carrito.abrir()
   }
 
   return (

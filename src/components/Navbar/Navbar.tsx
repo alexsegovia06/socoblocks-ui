@@ -1,6 +1,7 @@
-import { Link, NavLink } from 'react-router'
+import { Link, NavLink, useNavigate } from 'react-router'
 import { LayoutGrid, LogOut, Search, ShoppingBag, User } from 'lucide-react'
 import { useAuth } from "../../auth/AuthContext.tsx";
+import { useCarrito } from '../../carrito/CarritoContext.tsx'
 import { NAV_LINKS } from './navLinks.ts'
 import './Navbar.css'
 
@@ -12,6 +13,14 @@ export interface NavItem {
 export default function Navbar() {
   const { user, logout } = useAuth()
   const links = user ? NAV_LINKS[user.role] : null
+  const carrito = useCarrito()
+  const navigate = useNavigate()
+
+  // Sin sesión no hay carrito: el ícono lleva a iniciar sesión
+  function abrirCarrito() {
+    if (user) carrito.abrir()
+    else navigate('/login')
+  }
 
   return (
     <nav className="navbar">
@@ -34,9 +43,19 @@ export default function Navbar() {
           </Link>
         )}
 
-        <button type="button" className="navbar__cart" aria-label="Carrito">
+        <button
+          type="button"
+          className="navbar__cart"
+          aria-label={carrito.unidades > 0 ? `Carrito: ${carrito.unidades} productos` : 'Carrito'}
+          aria-haspopup="dialog"
+          onClick={abrirCarrito}
+        >
           <ShoppingBag size={20} />
-          <span className="navbar__badge">2</span>
+          {carrito.unidades > 0 && (
+            <span className="navbar__badge" aria-hidden="true">
+              {carrito.unidades > 99 ? '99+' : carrito.unidades}
+            </span>
+          )}
         </button>
 
         {user ? (
