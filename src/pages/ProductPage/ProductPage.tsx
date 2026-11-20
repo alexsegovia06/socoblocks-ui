@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link, Navigate, useNavigate, useParams } from 'react-router'
 import { useAuth } from '../../auth/AuthContext.tsx'
 import { CATEGORIAS, RESENAS } from '../../data/sets.ts'
@@ -9,6 +10,7 @@ import { useWishlist } from '../../wishlist/useWishlist.ts'
 import ProductGallery from './components/ProductGallery/ProductGallery.tsx'
 import ProductInfo from './components/ProductInfo/ProductInfo.tsx'
 import ProductReviews from './components/ProductReviews/ProductReviews.tsx'
+import RelatedSets from './components/RelatedSets/RelatedSets.tsx'
 import './ProductPage.css'
 
 export default function ProductPage() {
@@ -20,6 +22,12 @@ export default function ProductPage() {
   const { sets, cargando, error } = useCatalogo()
   const agregarAlCarrito = useAgregarAlCarrito()
   const toast = useToast()
+
+  // Al pasar de un set a otro (p. ej. desde "También te puede gustar") se vuelve al inicio de la página.
+  // El scroll lo lleva el contenedor del Layout, no la ventana.
+  useEffect(() => {
+    document.querySelector('.layout__content')?.scrollTo({ top: 0 })
+  }, [id])
 
   // Mismos datos que el catálogo: el set se busca por su id del backend
   const set = sets.find((s) => s.id === Number(id))
@@ -103,6 +111,8 @@ export default function ProductPage() {
       </section>
 
       <ProductReviews resenas={resenas} />
+
+      <RelatedSets set={set} catalogo={sets} onAgregar={(s) => agregarAlCarrito(s)} />
     </main>
   )
 }
