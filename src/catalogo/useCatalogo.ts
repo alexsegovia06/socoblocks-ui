@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { api } from '../api.ts'
 import type { ApiError } from '../api.ts'
 import { toSet } from '../data/mapSet.ts'
@@ -29,6 +29,8 @@ function pedirCatalogo(): Promise<SetColeccionable[]> {
 export function useCatalogo() {
   const [sets, setSets] = useState<SetColeccionable[] | null>(ultimo)
   const [error, setError] = useState<string | null>(null)
+  // Cambiarlo vuelve a disparar la petición (botón "Reintentar")
+  const [intento, setIntento] = useState(0)
 
   useEffect(() => {
     let vigente = true // evita actualizar un componente que ya se desmontó
@@ -44,6 +46,11 @@ export function useCatalogo() {
     return () => {
       vigente = false
     }
+  }, [intento])
+
+  const recargar = useCallback(() => {
+    setError(null)
+    setIntento((n) => n + 1)
   }, [])
 
   return {
@@ -51,5 +58,6 @@ export function useCatalogo() {
     // Solo está "cargando" la primera vez; si ya hay datos guardados se muestran mientras se actualizan
     cargando: sets === null && error === null,
     error,
+    recargar,
   }
 }

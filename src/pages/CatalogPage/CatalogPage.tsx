@@ -13,7 +13,7 @@ export default function CatalogPage() {
   const { user } = useAuth()
   const navigate = useNavigate()
   const [filtros, setFiltros] = useState<FiltrosState>(FILTROS_INICIALES)
-  const { sets } = useCatalogo()
+  const { sets, cargando, error, recargar } = useCatalogo()
 
   const destacado = sets.find((s) => s.id === HERO_DESTACADO.setId)
 
@@ -38,7 +38,14 @@ export default function CatalogPage() {
 
       <div className="catalogo__cuerpo">
         <Filters filtros={filtros} onChange={setFiltros} onLimpiar={() => setFiltros(FILTROS_INICIALES)} />
-        <SetsSection sets={visibles} onAgregar={agregar} />
+        <SetsSection
+          sets={visibles}
+          onAgregar={agregar}
+          cargando={cargando}
+          // Si ya había sets guardados y solo falló la actualización, se siguen mostrando
+          error={sets.length === 0 ? error : null}
+          onReintentar={recargar}
+        />
       </div>
     </main>
   )
