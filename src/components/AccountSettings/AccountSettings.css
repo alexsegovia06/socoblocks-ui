@@ -11,7 +11,7 @@
   padding: 28px 30px;
   border: 1px solid var(--ib-border);
   border-radius: 18px;
-  background: #fff;
+  background: var(--ib-surface);
   box-shadow: 0 1px 3px rgba(22, 25, 44, 0.04);
 }
 
@@ -69,7 +69,7 @@
 
 .settings__input:focus {
   border-color: var(--ib-red);
-  background: #fff;
+  background: var(--ib-surface);
   outline: none;
   box-shadow: 0 0 0 3px rgba(184, 65, 61, 0.15);
 }
@@ -91,7 +91,7 @@
 
 .settings__error {
   font-size: 12.5px;
-  color: #a12622;
+  color: var(--ib-danger);
 }
 
 .settings__submit {

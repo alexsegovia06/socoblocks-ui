@@ -26,7 +26,7 @@
 
 .seller-products__header p {
   font-size: 15.5px;
-  color: #4b5567;
+  color: var(--ib-text-2);
 }
 
 .seller-products__new {
@@ -53,7 +53,7 @@
   overflow-x: auto;
   border: 1px solid var(--ib-border);
   border-radius: 20px;
-  background: #fff;
+  background: var(--ib-surface);
   box-shadow: 0 1px 3px rgba(22, 25, 44, 0.04);
 }
 
@@ -66,18 +66,18 @@
 .seller-products__table th {
   padding: 20px 20px;
   border-bottom: 1px solid var(--ib-border);
-  background: #f9fafb;
+  background: var(--ib-surface-2);
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 1px;
   text-align: left;
   text-transform: uppercase;
-  color: #4b5567;
+  color: var(--ib-text-2);
 }
 
 .seller-products__table td {
   padding: 16px 20px;
-  border-bottom: 1px solid #f1f2f4;
+  border-bottom: 1px solid var(--ib-border-soft);
   font-size: 15px;
   vertical-align: middle;
 }
@@ -100,7 +100,7 @@
   height: 60px;
   border: 1px solid var(--ib-border);
   border-radius: 12px;
-  background: #f4f5f7;
+  background: var(--ib-field);
   font-size: 20px;
   line-height: 1.2;
 }
@@ -111,7 +111,7 @@
 }
 
 .seller-products__category {
-  color: #4b5567;
+  color: var(--ib-text-2);
 }
 
 .seller-products__price {
@@ -128,7 +128,7 @@
 .seller-products__stock--low {
   padding: 2px 10px;
   border-radius: 6px;
-  background: #fdecea;
+  background: var(--ib-danger-soft);
   color: var(--ib-red);
 }
 
@@ -165,8 +165,8 @@
   padding: 0 14px;
   border: 1px solid var(--ib-border);
   border-radius: 12px;
-  background: #fff;
-  color: #9aa0ab;
+  background: var(--ib-surface);
+  color: var(--ib-muted);
   font-weight: 400;
 }
 
@@ -191,7 +191,7 @@
   padding: 11px 12px;
   border: 1px solid var(--ib-border);
   border-radius: 12px;
-  background: #fff;
+  background: var(--ib-surface);
   font-family: inherit;
   font-size: 14px;
   color: var(--ib-ink);
@@ -207,7 +207,7 @@
 }
 
 .seller-products__limpiar:hover {
-  background: #fdf3f2;
+  background: var(--ib-danger-soft);
   opacity: 1;
 }
 
@@ -251,7 +251,7 @@
   width: 40px;
   height: 22px;
   border-radius: 999px;
-  background: #cbd5e1;
+  background: var(--ib-disabled);
   transition: background 0.15s ease;
 }
 
@@ -262,13 +262,13 @@
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: #fff;
+  background: #fff; /* la bolita del switch es blanca en los dos temas */
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   transition: transform 0.15s ease;
 }
 
 .seller-products__switch--on {
-  color: #2f9a63;
+  color: var(--ib-success);
 }
 
 .seller-products__switch--on .seller-products__switch-pista {
@@ -308,7 +308,7 @@
   place-items: center;
   padding: 4px;
   background: none;
-  color: #9ca3af;
+  color: var(--ib-muted);
 }
 
 .seller-products__actions button:hover:not(:disabled) {

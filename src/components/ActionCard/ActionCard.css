@@ -5,7 +5,7 @@
   padding: 40px;
   border: 1px solid var(--ib-border);
   border-radius: 22px;
-  background: #fff;
+  background: var(--ib-surface);
   color: var(--ib-ink);
   text-decoration: none;
   box-shadow: 0 1px 3px rgba(22, 25, 44, 0.04);
@@ -30,13 +30,13 @@
 }
 
 .action-card--red .action-card__icon {
-  background: #fbeeed;
+  background: var(--ib-danger-soft);
   color: var(--ib-red);
 }
 
 .action-card--slate .action-card__icon {
-  background: #eef1f5;
-  color: #34495e;
+  background: var(--ib-chip);
+  color: var(--ib-text-2);
 }
 
 .action-card__title {
@@ -48,7 +48,7 @@
 }
 
 .action-card:hover .action-card__title {
-  color: #34506b;
+  color: var(--ib-text-2);
 }
 
 .action-card__description {
@@ -58,12 +58,12 @@
 
 .action-card__chevron {
   flex-shrink: 0;
-  color: #9aa0ab;
+  color: var(--ib-muted);
   transition: color 0.2s;
 }
 
 .action-card:hover .action-card__chevron {
-  color: #34506b;
+  color: var(--ib-text-2);
 }
 
 @media (max-width: 1024px) {

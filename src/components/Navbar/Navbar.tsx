@@ -4,6 +4,7 @@ import { useAuth } from "../../auth/AuthContext.tsx";
 import { useCarrito } from '../../carrito/CarritoContext.tsx'
 import { useToast } from '../../toast/ToastContext.tsx'
 import { NAV_LINKS } from './navLinks.ts'
+import ThemeToggle from '../ThemeToggle/ThemeToggle.tsx'
 import './Navbar.css'
 
 export interface NavItem {
@@ -49,6 +50,8 @@ export default function Navbar() {
             Catálogo
           </Link>
         )}
+
+        <ThemeToggle />
 
         <button
           type="button"

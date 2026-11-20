@@ -16,7 +16,7 @@
   border: 1px solid var(--ib-border);
   border-radius: 12px;
   background: var(--ib-field);
-  color: #9aa0ab;
+  color: var(--ib-muted);
 }
 
 .navbar__search input {
@@ -35,7 +35,7 @@
 }
 
 .navbar__search input::placeholder {
-  color: #9aa0ab;
+  color: var(--ib-muted);
 }
 
 .navbar__actions {

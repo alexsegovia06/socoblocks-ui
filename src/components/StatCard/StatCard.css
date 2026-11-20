@@ -6,7 +6,7 @@
   padding: 30px;
   border: 1px solid var(--ib-border);
   border-radius: 18px;
-  background: #fff;
+  background: var(--ib-surface);
   box-shadow: 0 1px 3px rgba(22, 25, 44, 0.04);
 }
 
@@ -15,7 +15,7 @@
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: #8a94a6;
+  color: var(--ib-muted);
 }
 
 .stat-card__value {
@@ -34,7 +34,7 @@
 
 .stat-card__value span {
   font-size: 15px;
-  color: #8a94a6;
+  color: var(--ib-muted);
 }
 
 .stat-card__footer {
@@ -56,17 +56,17 @@
 }
 
 .stat-card--green .stat-card__icon {
-  background: #e8f6ee;
-  color: #2f9a63;
+  background: var(--ib-success-soft);
+  color: var(--ib-success);
 }
 
 .stat-card--slate .stat-card__icon {
-  background: #eef1f5;
-  color: #34495e;
+  background: var(--ib-chip);
+  color: var(--ib-text-2);
 }
 
 .stat-card--amber .stat-card__icon {
-  background: #fdf4dd;
+  background: var(--ib-warn-soft);
   color: #e3a33b;
 }
 

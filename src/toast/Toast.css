@@ -17,13 +17,13 @@
   gap: 12px;
   width: 100%;
   padding: 14px 12px 14px 16px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--ib-border);
   border-left: 4px solid var(--toast-color);
   border-radius: 14px;
-  background: #fff;
+  background: var(--ib-surface);
   box-shadow: 0 12px 30px rgba(22, 25, 44, 0.16);
   font-family: 'Poppins', system-ui, sans-serif;
-  color: #16192c;
+  color: var(--ib-ink);
   pointer-events: auto;
   animation: toast-entra 0.22s ease-out;
 }
@@ -56,7 +56,7 @@
 }
 
 .toast__accion:hover {
-  background: #f4f5f7;
+  background: var(--ib-field);
   opacity: 1;
 }
 
@@ -69,11 +69,11 @@
   padding: 0;
   border-radius: 8px;
   background: transparent;
-  color: #6b7280;
+  color: var(--ib-muted);
 }
 
 .toast__cerrar:hover {
-  background: #f4f5f7;
+  background: var(--ib-field);
   opacity: 1;
 }
 

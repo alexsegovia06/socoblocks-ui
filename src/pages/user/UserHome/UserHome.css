@@ -17,7 +17,7 @@
   padding: 18px 20px;
   border: 1px solid var(--ib-border);
   border-radius: 16px;
-  background: #fff;
+  background: var(--ib-surface);
 }
 
 .user-home__icono {
@@ -27,7 +27,7 @@
   height: 38px;
   margin-bottom: 8px;
   border-radius: 10px;
-  background: #fdf3f2;
+  background: var(--ib-danger-soft);
   color: var(--ib-red);
 }
 
@@ -50,8 +50,8 @@
 .user-home__volvio {
   padding: 3px 10px;
   border-radius: 999px;
-  background: #e8f6ee;
-  color: #2f9a63;
+  background: var(--ib-success-soft);
+  color: var(--ib-success);
   font-size: 12px;
   font-weight: 700;
   white-space: nowrap;

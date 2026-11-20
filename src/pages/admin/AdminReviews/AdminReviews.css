@@ -14,11 +14,11 @@
   padding: 20px 22px;
   border: 1px solid var(--ib-border);
   border-radius: 16px;
-  background: #fff;
+  background: var(--ib-surface);
 }
 
 .admin-reviews__item--oculta {
-  background: #fafbfc;
+  background: var(--ib-surface-2);
 }
 
 .admin-reviews__item--oculta .admin-reviews__comentario {
@@ -41,7 +41,7 @@
 .admin-reviews__estrellas {
   display: inline-flex;
   gap: 2px;
-  color: #d6dbe4;
+  color: var(--ib-disabled);
 }
 
 .admin-reviews__estrella--llena {

@@ -8,7 +8,7 @@
   height: 10px;
   overflow: hidden;
   border-radius: 999px;
-  background: #e9edf3;
+  background: var(--ib-media);
 }
 
 .coleccion__relleno {
@@ -42,7 +42,7 @@
   font-weight: 700;
   letter-spacing: 0.6px;
   text-transform: uppercase;
-  color: #8a94a6;
+  color: var(--ib-muted);
 }
 
 .coleccion__stat dd {

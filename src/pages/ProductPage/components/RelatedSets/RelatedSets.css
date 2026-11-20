@@ -21,7 +21,7 @@
 
 .related-sets__head p {
   font-size: 16px;
-  color: #4b5567;
+  color: var(--ib-text-2);
 }
 
 .related-sets__todos {

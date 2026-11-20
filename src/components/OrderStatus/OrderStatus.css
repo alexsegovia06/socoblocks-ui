@@ -8,16 +8,16 @@
 }
 
 .order-status--pendiente {
-  background: #fff4e0;
-  color: #a5620b;
+  background: var(--ib-warn-soft);
+  color: var(--ib-warn-ink);
 }
 
 .order-status--enviado {
-  background: #e7ecfc;
-  color: #2b4fd6;
+  background: var(--ib-info-soft);
+  color: var(--ib-info);
 }
 
 .order-status--entregado {
-  background: #e8f6ee;
-  color: #2f9a63;
+  background: var(--ib-success-soft);
+  color: var(--ib-success);
 }

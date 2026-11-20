@@ -52,7 +52,7 @@
   padding: 8px 28px 24px;
   border: 1px solid var(--ib-border);
   border-radius: 20px;
-  background: #fff;
+  background: var(--ib-surface);
 }
 
 .carrito-pagina__lista {
@@ -72,7 +72,7 @@
 }
 
 .carrito-pagina__vaciar:hover {
-  color: #b42318;
+  color: var(--ib-danger);
   opacity: 1;
 }
 
@@ -113,7 +113,7 @@
 }
 
 .carrito-pagina__gratis {
-  color: #2f9a63;
+  color: var(--ib-success);
 }
 
 .carrito-pagina__total {
@@ -150,14 +150,14 @@
 }
 
 .carrito-pagina__boton:disabled {
-  background: #cbd5e1;
+  background: var(--ib-disabled);
   opacity: 1;
   cursor: not-allowed;
 }
 
 .carrito-pagina__nota {
   font-size: 13px;
-  color: #b42318;
+  color: var(--ib-danger);
 }
 
 .carrito-pagina__beneficios {
@@ -186,7 +186,7 @@
   padding: 56px 24px;
   border: 1px dashed var(--ib-border);
   border-radius: 20px;
-  background: #fff;
+  background: var(--ib-surface);
   text-align: center;
   color: var(--ib-muted);
 }

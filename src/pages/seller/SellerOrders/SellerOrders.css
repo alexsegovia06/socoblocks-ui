@@ -19,7 +19,7 @@
 
 .seller-orders__header p {
   font-size: 15.5px;
-  color: #4b5567;
+  color: var(--ib-text-2);
 }
 
 .seller-orders__barra {
@@ -37,7 +37,7 @@
   padding: 4px;
   border: 1px solid var(--ib-border);
   border-radius: 12px;
-  background: #fff;
+  background: var(--ib-surface);
 }
 
 .seller-orders__pestana {
@@ -84,8 +84,8 @@
   padding: 0 14px;
   border: 1px solid var(--ib-border);
   border-radius: 12px;
-  background: #fff;
-  color: #9aa0ab;
+  background: var(--ib-surface);
+  color: var(--ib-muted);
   font-weight: 400;
 }
 
@@ -118,7 +118,7 @@
 .seller-orders__pedido {
   border: 1px solid var(--ib-border);
   border-radius: 16px;
-  background: #fff;
+  background: var(--ib-surface);
 }
 
 .seller-orders__fila {
@@ -153,7 +153,7 @@
   padding: 8px 10px;
   border: 1px solid var(--ib-border);
   border-radius: 10px;
-  background: #fff;
+  background: var(--ib-surface);
   font-family: inherit;
   font-size: 13.5px;
   color: var(--ib-ink);
@@ -204,7 +204,7 @@
   padding: 48px 24px;
   border: 1px dashed var(--ib-border);
   border-radius: 18px;
-  background: #fff;
+  background: var(--ib-surface);
   text-align: center;
   color: var(--ib-muted);
 }

@@ -14,7 +14,7 @@
   min-height: 520px;
   border-radius: 22px;
   overflow: hidden;
-  background: #fff;
+  background: var(--ib-surface);
   box-shadow: 0 18px 50px rgba(22, 25, 44, 0.12);
 }
 
@@ -69,12 +69,12 @@
 }
 
 .auth-input::placeholder {
-  color: #9aa0ab;
+  color: var(--ib-muted);
 }
 
 .auth-input:focus {
   border-color: var(--ib-red);
-  background: #fff;
+  background: var(--ib-surface);
   box-shadow: 0 0 0 3px rgba(184, 65, 61, 0.15);
 }
 
@@ -118,8 +118,8 @@
 .auth-error {
   padding: 10px 14px;
   border-radius: 10px;
-  background: #fdecec;
-  color: #a12622;
+  background: var(--ib-danger-soft);
+  color: var(--ib-danger);
   font-size: 13px;
 }
 

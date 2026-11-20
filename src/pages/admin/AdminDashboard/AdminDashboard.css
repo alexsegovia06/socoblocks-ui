@@ -19,7 +19,7 @@
 
 .admin-dashboard__header p {
   font-size: 15.5px;
-  color: #4b5567;
+  color: var(--ib-text-2);
 }
 
 .admin-dashboard__stats {
@@ -42,7 +42,7 @@
   padding: 26px 30px;
   border: 1px solid var(--ib-border);
   border-radius: 18px;
-  background: #fff;
+  background: var(--ib-surface);
 }
 
 .admin-dashboard__pedidos h2 {

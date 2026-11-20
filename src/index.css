@@ -1,20 +1,81 @@
 :root {
-  --bg: #f1f3f7;
-  --card: #ffffff;
-  --text: #1a2233;
-  --muted: #5d6778;
-  --border: #d9dee6;
-  --accent: #2b4fd6;
-  --error: #b42318;
+  /* ---- Colores del tema claro (los usa toda la app) ---- */
+  --ib-bg: #f7f8fa;          /* fondo de la página */
+  --ib-surface: #ffffff;     /* tarjetas, header, paneles */
+  --ib-surface-2: #fafbfc;   /* cabeceras de tabla, pies, hover */
+  --ib-field: #f4f5f7;       /* inputs y botones suaves */
+  --ib-media: #e9edf3;       /* fondo de imágenes y skeletons */
+  --ib-chip: #eef1f5;        /* pastillas y contadores */
+  --ib-border: #e5e7eb;
+  --ib-border-soft: #f1f2f4;
+  --ib-ink: #16192c;         /* texto principal */
+  --ib-text-2: #4b5567;      /* texto secundario */
+  --ib-muted: #6b7280;       /* texto tenue */
+  --ib-disabled: #cbd5e1;
+  --ib-red: #b8413d;
+  --ib-red-dark: #a23733;
+  --ib-accent-ink: #1e4a7a;  /* etiquetas de categoría */
+  --ib-danger: #b42318;
+  --ib-danger-soft: #fdecea;
+  --ib-danger-border: #f3c7c4;
+  --ib-success: #2f9a63;
+  --ib-success-soft: #e8f6ee;
+  --ib-warn-ink: #a5620b;
+  --ib-warn-soft: #fff4e0;
+  --ib-warn-border: #f2dfb5;
+  --ib-info: #2b4fd6;
+  --ib-info-soft: #e7ecfc;
 
+  /* Nombres viejos (login, .main, .card…) apuntando a los mismos colores */
+  --bg: var(--ib-bg);
+  --card: var(--ib-surface);
+  --text: var(--ib-ink);
+  --muted: var(--ib-muted);
+  --border: var(--ib-border);
+  --accent: var(--ib-info);
+  --error: var(--ib-danger);
+
+  color-scheme: light;
   font-family: 'Instrument Sans', system-ui, sans-serif;
   color: var(--text);
   background: var(--bg);
   line-height: 1.5;
 }
 
+/* ---- Tema oscuro: se activa con <html data-theme="dark"> (ver src/tema/useTema.ts) ---- */
+:root[data-theme='dark'] {
+  --ib-bg: #0f1218;
+  --ib-surface: #171b23;
+  --ib-surface-2: #1c212b;
+  --ib-field: #20252f;
+  --ib-media: #252c38;
+  --ib-chip: #272e3b;
+  --ib-border: #2b3240;
+  --ib-border-soft: #232935;
+  --ib-ink: #e9ebf1;
+  --ib-text-2: #b7bdc9;
+  --ib-muted: #8e96a6;
+  --ib-disabled: #3b4353;
+  --ib-red: #cf5a53;
+  --ib-red-dark: #dc6b64;
+  --ib-accent-ink: #92b6e8;
+  --ib-danger: #f28b82;
+  --ib-danger-soft: #3a2020;
+  --ib-danger-border: #5c2b29;
+  --ib-success: #5cc98f;
+  --ib-success-soft: #16301f;
+  --ib-warn-ink: #f0c065;
+  --ib-warn-soft: #362c16;
+  --ib-warn-border: #5a4922;
+  --ib-info: #93abff;
+  --ib-info-soft: #1d2750;
+
+  color-scheme: dark;
+}
+
 * { box-sizing: border-box; }
-body { margin: 0; }
+body { margin: 0; background: var(--ib-bg); }
+input, select, textarea { background-color: var(--ib-surface); color: var(--ib-ink); }
 h1 { margin: 0 0 0.25rem; font-size: 1.75rem; letter-spacing: -0.02em; }
 p { margin: 0; }
 a { color: var(--accent); }
@@ -64,7 +125,7 @@ button:disabled { opacity: 0.6; cursor: default; }
 button.secondary { background: none; color: var(--text); border: 1px solid var(--border); padding: 0.4rem 0.8rem; }
 
 .muted { color: var(--muted); }
-.error { color: var(--error); background: #fdecea; padding: 0.625rem 0.75rem; border-radius: 8px; }
+.error { color: var(--error); background: var(--ib-danger-soft); padding: 0.625rem 0.75rem; border-radius: 8px; }
 
 /* Logged-in pages */
 .header {
@@ -88,7 +149,7 @@ button.secondary { background: none; color: var(--text); border: 1px solid var(-
   border-radius: 999px;
 }
 .header nav a:hover { color: var(--text); }
-.header nav a.active { color: var(--accent); background: #e7ecfc; }
+.header nav a.active { color: var(--accent); background: var(--ib-info-soft); }
 
 .account { display: flex; align-items: center; gap: 0.75rem; }
 
@@ -96,7 +157,7 @@ button.secondary { background: none; color: var(--text); border: 1px solid var(-
   font-size: 0.75rem;
   font-weight: 700;
   color: var(--accent);
-  background: #e7ecfc;
+  background: var(--ib-info-soft);
   padding: 0.2rem 0.6rem;
   border-radius: 999px;
 }

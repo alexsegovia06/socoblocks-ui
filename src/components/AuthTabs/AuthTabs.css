@@ -5,7 +5,7 @@
   padding: 4px;
   border: 1px solid var(--ib-border);
   border-radius: 14px;
-  background: #f1f3f6;
+  background: var(--ib-media);
 }
 
 .tabs__item {
@@ -14,13 +14,13 @@
   text-align: center;
   font-size: 14px;
   font-weight: 600;
-  color: #4b5563;
+  color: var(--ib-text-2);
   text-decoration: none;
   transition: background 0.15s ease, color 0.15s ease;
 }
 
 .tabs__item--active {
-  background: #fff;
+  background: var(--ib-surface);
   color: var(--ib-ink);
   font-weight: 700;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);

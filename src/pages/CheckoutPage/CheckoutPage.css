@@ -51,7 +51,7 @@
 .checkout__campo input:focus {
   outline: 3px solid rgba(184, 65, 61, 0.18);
   border-color: var(--ib-red);
-  background: #fff;
+  background: var(--ib-surface);
 }
 
 .checkout__metodos {
@@ -99,7 +99,7 @@
 
 .checkout__metodo--activo {
   border-color: var(--ib-red);
-  background: #fdf3f2;
+  background: var(--ib-danger-soft);
 }
 
 .checkout__metodo--activo svg {
@@ -147,12 +147,12 @@
   padding: 48px 32px;
   border: 1px solid var(--ib-border);
   border-radius: 24px;
-  background: #fff;
+  background: var(--ib-surface);
   text-align: center;
 }
 
 .checkout__exito > svg {
-  color: #2f9a63;
+  color: var(--ib-success);
 }
 
 .checkout__exito h1 {

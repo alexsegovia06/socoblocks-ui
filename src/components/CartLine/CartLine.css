@@ -18,7 +18,7 @@
   height: 96px;
   overflow: hidden;
   border-radius: 14px;
-  background: #e9edf3;
+  background: var(--ib-media);
   font-size: 32px;
 }
 
@@ -58,10 +58,10 @@
   width: fit-content;
   padding: 3px 10px;
   border-radius: 8px;
-  background: #fdecea;
+  background: var(--ib-danger-soft);
   font-size: 12.5px;
   font-weight: 600;
-  color: #b42318;
+  color: var(--ib-danger);
 }
 
 .cart-line__controles {
@@ -77,7 +77,7 @@
   align-items: center;
   border: 1px solid var(--ib-border);
   border-radius: 10px;
-  background: #fff;
+  background: var(--ib-surface);
 }
 
 .cart-line__cantidad button {
@@ -97,7 +97,7 @@
 }
 
 .cart-line__cantidad button:disabled {
-  color: #c3c8d1;
+  color: var(--ib-disabled);
   opacity: 1;
 }
 
@@ -121,8 +121,8 @@
 }
 
 .cart-line__quitar:hover {
-  background: #fdecea;
-  color: #b42318;
+  background: var(--ib-danger-soft);
+  color: var(--ib-danger);
   opacity: 1;
 }
 

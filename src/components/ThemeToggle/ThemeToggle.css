@@ -1,0 +1,41 @@
+.theme-toggle {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 1px solid var(--ib-border);
+  border-radius: 50%;
+  background: var(--ib-field);
+  color: var(--ib-ink);
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+  opacity: 1;
+  color: var(--ib-red);
+  transform: rotate(15deg);
+}
+
+.theme-toggle:focus-visible {
+  outline: 3px solid rgba(184, 65, 61, 0.3);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle,
+  .theme-toggle:hover {
+    transition: none;
+    transform: none;
+  }
+}
+
+@media (max-width: 425px) {
+  .theme-toggle {
+    width: 34px;
+    height: 34px;
+  }
+}
