@@ -175,9 +175,23 @@
   background: var(--ib-field);
 }
 
+.checkout__exito-acciones {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px 18px;
+  margin-top: 8px;
+}
+
 .checkout__exito-boton {
   width: auto;
-  margin-top: 8px;
+}
+
+.checkout__exito-secundario {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ib-ink);
 }
 
 @media (max-width: 425px) {

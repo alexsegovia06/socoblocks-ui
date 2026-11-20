@@ -9,6 +9,7 @@ import CartPage from './pages/CartPage/CartPage.tsx'
 import CheckoutPage from './pages/CheckoutPage/CheckoutPage.tsx'
 import UserHome from './pages/user/UserHome/UserHome.tsx'
 import UserProfile from './pages/user/UserProfile/UserProfile.tsx'
+import UserOrders from './pages/user/UserOrders/UserOrders.tsx'
 import UserSettings from './pages/user/UserSettings/UserSettings.tsx'
 import SellerDashboard from './pages/seller/SellerDashboard/SellerDashboard.tsx'
 import SellerProducts from './pages/seller/SellerProducts/SellerProducts.tsx'
@@ -41,6 +42,7 @@ export default function App() {
       <Route element={<RequireRole roles={['COLECCIONISTA']} />}>
         <Route path="/user" element={<Layout contained />}>
           <Route index element={<UserHome />} />
+          <Route path="orders" element={<UserOrders />} />
           <Route path="profile" element={<UserProfile />} />
           <Route path="settings" element={<UserSettings />} />
         </Route>

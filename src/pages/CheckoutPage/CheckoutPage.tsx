@@ -61,9 +61,16 @@ export default function CheckoutPage() {
             Total: <strong>{formatoPrecio(confirmado.total)} MXN</strong> ·{' '}
             {METODOS.find((m) => m.id === confirmado.metodoPago)?.titulo}
           </p>
-          <Link to="/" className="carrito-pagina__boton checkout__exito-boton">
-            Volver al catálogo
-          </Link>
+          <div className="checkout__exito-acciones">
+            {user?.role === 'COLECCIONISTA' && (
+              <Link to="/user/orders" className="carrito-pagina__boton checkout__exito-boton">
+                Ver mis pedidos
+              </Link>
+            )}
+            <Link to="/" className="checkout__exito-secundario">
+              Volver al catálogo
+            </Link>
+          </div>
         </section>
       </main>
     )

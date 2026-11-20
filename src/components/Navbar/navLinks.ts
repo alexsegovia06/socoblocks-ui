@@ -5,6 +5,8 @@ import type { NavItem } from './Navbar.tsx'
 export const NAV_LINKS: Record<Role, NavItem[]> = {
   COLECCIONISTA: [
     { to: '/', label: 'Catálogo' },
+    { to: '/user', label: 'Inicio' },
+    { to: '/user/orders', label: 'Pedidos' },
     { to: '/user/profile', label: 'Perfil' },
     { to: '/user/settings', label: 'Ajustes' },
   ],

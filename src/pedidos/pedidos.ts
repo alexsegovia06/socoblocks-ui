@@ -31,6 +31,22 @@ export interface Pedido {
   estado: 'PENDIENTE' | 'ENVIADO' | 'ENTREGADO'
 }
 
+// Cómo se muestra cada estado en pantalla
+export const ESTADO_PEDIDO: Record<Pedido['estado'], string> = {
+  PENDIENTE: 'Preparando',
+  ENVIADO: 'En camino',
+  ENTREGADO: 'Entregado',
+}
+
+export const METODO_PAGO: Record<MetodoPago, string> = {
+  tarjeta: 'Tarjeta al recibir',
+  transferencia: 'Transferencia',
+  oxxo: 'Pago en OXXO',
+}
+
+export const formatoFecha = (iso: string) =>
+  new Date(iso).toLocaleDateString('es-MX', { day: 'numeric', month: 'short', year: 'numeric' })
+
 const clave = (username: string) => `pedidos:${username}`
 
 export function leerPedidos(username: string): Pedido[] {
