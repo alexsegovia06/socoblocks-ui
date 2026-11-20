@@ -4,6 +4,7 @@ import { AlertTriangle, Minus, Plus, Trash2 } from 'lucide-react'
 import { useCarrito } from '../../carrito/CarritoContext.tsx'
 import type { LineaCarrito } from '../../carrito/useLineasCarrito.ts'
 import { formatoPrecio } from '../../data/sets.ts'
+import { useToast } from '../../toast/ToastContext.tsx'
 import './CartLine.css'
 
 interface Props {
@@ -15,10 +16,18 @@ interface Props {
 }
 
 export default function CartLine({ linea, compacta = false, onNavegar }: Props) {
-  const { cambiarCantidad, quitar } = useCarrito()
+  const { agregar, cambiarCantidad, quitar } = useCarrito()
+  const toast = useToast()
   const [sinImagen, setSinImagen] = useState(false)
   const { set, cantidad, sinStockSuficiente } = linea
   const destino = `/products/${set.id}`
+
+  function quitarDelCarrito() {
+    quitar(set.id)
+    toast.info(`${set.nombre} se quitó del carrito.`, {
+      accion: { texto: 'Deshacer', onClick: () => agregar(set, cantidad) },
+    })
+  }
 
   return (
     <li className={`cart-line${compacta ? ' cart-line--compacta' : ''}`}>
@@ -72,7 +81,7 @@ export default function CartLine({ linea, compacta = false, onNavegar }: Props) 
             type="button"
             className="cart-line__quitar"
             aria-label={`Quitar ${set.nombre} del carrito`}
-            onClick={() => quitar(set.id)}
+            onClick={quitarDelCarrito}
           >
             <Trash2 size={16} />
             {!compacta && 'Quitar'}

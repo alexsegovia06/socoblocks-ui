@@ -6,6 +6,7 @@ import { useCarrito } from '../../carrito/CarritoContext.tsx'
 import { useLineasCarrito } from '../../carrito/useLineasCarrito.ts'
 import { formatoPrecio } from '../../data/sets.ts'
 import { crearPedido } from '../../pedidos/pedidos.ts'
+import { useToast } from '../../toast/ToastContext.tsx'
 import type { DatosEnvio, MetodoPago, Pedido } from '../../pedidos/pedidos.ts'
 import '../CartPage/CartPage.css'
 import './CheckoutPage.css'
@@ -40,6 +41,7 @@ const CAMPOS: {
 export default function CheckoutPage() {
   const { user } = useAuth()
   const { vaciar } = useCarrito()
+  const toast = useToast()
   const { lineas, subtotal, puedePagar, cargando } = useLineasCarrito()
   const [envio, setEnvio] = useState<DatosEnvio>(ENVIO_VACIO)
   const [metodo, setMetodo] = useState<MetodoPago>('tarjeta')
@@ -100,6 +102,7 @@ export default function CheckoutPage() {
     })
     setConfirmado(pedido)
     vaciar()
+    toast.exito(`Pedido ${pedido.folio} confirmado.`)
   }
 
   return (

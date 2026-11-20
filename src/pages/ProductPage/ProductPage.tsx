@@ -3,7 +3,8 @@ import { useAuth } from '../../auth/AuthContext.tsx'
 import { CATEGORIAS, RESENAS } from '../../data/sets.ts'
 import { useCatalogo } from '../../catalogo/useCatalogo.ts'
 import { useColection } from '../../colection/useColection.ts'
-import { useCarrito } from '../../carrito/CarritoContext.tsx'
+import { useAgregarAlCarrito } from '../../carrito/useAgregarAlCarrito.ts'
+import { useToast } from '../../toast/ToastContext.tsx'
 import { useWishlist } from '../../wishlist/useWishlist.ts'
 import ProductGallery from './components/ProductGallery/ProductGallery.tsx'
 import ProductInfo from './components/ProductInfo/ProductInfo.tsx'
@@ -17,7 +18,8 @@ export default function ProductPage() {
   const wishlist = useWishlist()
   const coleccion = useColection()
   const { sets, cargando, error } = useCatalogo()
-  const carrito = useCarrito()
+  const agregarAlCarrito = useAgregarAlCarrito()
+  const toast = useToast()
 
   // Mismos datos que el catálogo: el set se busca por su id del backend
   const set = sets.find((s) => s.id === Number(id))
@@ -32,15 +34,10 @@ export default function ProductPage() {
   const categoria = CATEGORIAS.find((c) => c.id === set.categoria)
   const resenas = RESENAS.filter((r) => r.setId === set.id)
   const setId = set.id
+  const nombre = set.nombre
 
   function agregar(cantidad: number) {
-    if (!user) {
-      navigate('/login')
-      return
-    }
-    if (!set) return
-    carrito.agregar(set, cantidad)
-    carrito.abrir()
+    if (set) agregarAlCarrito(set, cantidad)
   }
 
   function alternarFavorito() {
@@ -48,7 +45,15 @@ export default function ProductPage() {
       navigate('/login')
       return
     }
+    const estaba = wishlist.has(setId)
     wishlist.toggle(setId)
+    if (estaba) {
+      toast.info(`${nombre} se quitó de tu wishlist.`, {
+        accion: { texto: 'Deshacer', onClick: () => wishlist.add(setId) },
+      })
+    } else {
+      toast.exito(`${nombre} se guardó en tu wishlist.`)
+    }
   }
 
   function alternarColeccion() {
@@ -58,9 +63,13 @@ export default function ProductPage() {
     }
     if (coleccion.has(setId)) {
       coleccion.remove(setId)
+      toast.info(`${nombre} se quitó de tu colección.`, {
+        accion: { texto: 'Deshacer', onClick: () => coleccion.add(setId) },
+      })
     } else {
       coleccion.add(setId)
       wishlist.remove(setId) // si ya lo tienes, deja de ser un deseo
+      toast.exito(`¡${nombre} ya es parte de tu colección!`)
     }
   }
 

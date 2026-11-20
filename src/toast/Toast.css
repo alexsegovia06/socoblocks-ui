@@ -1,0 +1,114 @@
+.toasts {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 100; /* por encima del panel del carrito */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  width: min(380px, calc(100% - 32px));
+  pointer-events: none;
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 14px 12px 14px 16px;
+  border: 1px solid #e5e7eb;
+  border-left: 4px solid var(--toast-color);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 12px 30px rgba(22, 25, 44, 0.16);
+  font-family: 'Poppins', system-ui, sans-serif;
+  color: #16192c;
+  pointer-events: auto;
+  animation: toast-entra 0.22s ease-out;
+}
+
+.toast--exito { --toast-color: #2f9a63; }
+.toast--error { --toast-color: #b42318; }
+.toast--info { --toast-color: #2b4fd6; }
+
+.toast__icono {
+  flex: none;
+  color: var(--toast-color);
+}
+
+.toast__mensaje {
+  flex: 1;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.toast__accion {
+  flex: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: transparent;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--toast-color);
+}
+
+.toast__accion:hover {
+  background: #f4f5f7;
+  opacity: 1;
+}
+
+.toast__cerrar {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #6b7280;
+}
+
+.toast__cerrar:hover {
+  background: #f4f5f7;
+  opacity: 1;
+}
+
+@keyframes toast-entra {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toast {
+    animation: none;
+  }
+}
+
+/* En celular quedan centrados abajo, a todo lo ancho */
+@media (max-width: 425px) {
+  .toasts {
+    right: 16px;
+    bottom: 16px;
+    left: 16px;
+    width: auto;
+    align-items: stretch;
+  }
+
+  .toast {
+    padding: 12px 10px 12px 14px;
+  }
+
+  .toast__mensaje {
+    font-size: 13px;
+  }
+}

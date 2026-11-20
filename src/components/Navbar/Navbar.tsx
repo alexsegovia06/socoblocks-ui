@@ -2,6 +2,7 @@ import { Link, NavLink, useNavigate } from 'react-router'
 import { LayoutGrid, LogOut, Search, ShoppingBag, User } from 'lucide-react'
 import { useAuth } from "../../auth/AuthContext.tsx";
 import { useCarrito } from '../../carrito/CarritoContext.tsx'
+import { useToast } from '../../toast/ToastContext.tsx'
 import { NAV_LINKS } from './navLinks.ts'
 import './Navbar.css'
 
@@ -15,6 +16,12 @@ export default function Navbar() {
   const links = user ? NAV_LINKS[user.role] : null
   const carrito = useCarrito()
   const navigate = useNavigate()
+  const toast = useToast()
+
+  function salir() {
+    logout()
+    toast.info('Cerraste sesión. ¡Vuelve pronto!')
+  }
 
   // Sin sesión no hay carrito: el ícono lleva a iniciar sesión
   function abrirCarrito() {
@@ -61,7 +68,7 @@ export default function Navbar() {
         {user ? (
           <>
             <span className="navbar__user">{user.username}</span>
-            <button type="button" className="navbar__session" onClick={logout}>
+            <button type="button" className="navbar__session" onClick={salir}>
               <LogOut size={14} />
               Salir
             </button>

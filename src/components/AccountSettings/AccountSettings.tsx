@@ -2,6 +2,7 @@ import { useId, useState, type ChangeEvent, type FormEvent } from "react";
 import { KeyRound, Save, UserRound } from "lucide-react";
 import { ApiError } from "../../api.ts";
 import { useAuth } from "../../auth/AuthContext.tsx";
+import { useToast } from "../../toast/ToastContext.tsx";
 import "./AccountSettings.css";
 
 // Ajustes de cuenta que son iguales para cualquier rol (usuario, vendedor, admin).
@@ -60,7 +61,7 @@ export default function AccountSettings() {
   const [form, setForm] = useState(EMPTY_FORM);
   const [fieldErrors, setFieldErrors] = useState<Partial<Record<FieldName, string>>>({});
   const [error, setError] = useState("");
-  const [saved, setSaved] = useState(false);
+  const toast = useToast();
   const [loading, setLoading] = useState(false);
 
   if (!user) return null; // las rutas ya exigen sesión; esto solo satisface a TypeScript
@@ -73,7 +74,6 @@ export default function AccountSettings() {
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     setError("");
-    setSaved(false);
 
     const problems = validate(form);
     setFieldErrors(problems);
@@ -89,7 +89,7 @@ export default function AccountSettings() {
         },
       });
       setForm(EMPTY_FORM);
-      setSaved(true);
+      toast.exito("Contraseña actualizada correctamente.");
     } catch (err) {
       // Si el backend devuelve errores por campo ({ errors: { newPassword: "..." } }) los pintamos en su input
       const fromServer = err instanceof ApiError ? err.errors : {};
@@ -158,11 +158,6 @@ export default function AccountSettings() {
           {error && (
             <p className="error" role="alert">
               {error}
-            </p>
-          )}
-          {saved && (
-            <p className="settings__ok" role="status">
-              Contraseña actualizada correctamente.
             </p>
           )}
 

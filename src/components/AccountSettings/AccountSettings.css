@@ -94,14 +94,6 @@
   color: #a12622;
 }
 
-.settings__ok {
-  padding: 10px 14px;
-  border-radius: 10px;
-  background: #e8f6ee;
-  color: #1e6b3f;
-  font-size: 13px;
-}
-
 .settings__submit {
   display: flex;
   align-items: center;

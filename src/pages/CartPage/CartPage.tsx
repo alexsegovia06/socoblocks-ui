@@ -4,12 +4,20 @@ import { useCarrito } from '../../carrito/CarritoContext.tsx'
 import { useLineasCarrito } from '../../carrito/useLineasCarrito.ts'
 import CartLine from '../../components/CartLine/CartLine.tsx'
 import { formatoPrecio } from '../../data/sets.ts'
+import { useToast } from '../../toast/ToastContext.tsx'
 import './CartPage.css'
 
 export default function CartPage() {
   const navigate = useNavigate()
-  const { unidades, vaciar } = useCarrito()
+  const { items, unidades, vaciar, restaurar } = useCarrito()
+  const toast = useToast()
   const { lineas, subtotal, puedePagar, cargando } = useLineasCarrito()
+
+  function vaciarCarrito() {
+    const antes = items
+    vaciar()
+    toast.info('Vaciaste tu carrito.', { accion: { texto: 'Deshacer', onClick: () => restaurar(antes) } })
+  }
 
   if (cargando && unidades > 0) {
     return (
@@ -51,7 +59,7 @@ export default function CartPage() {
                 <CartLine key={linea.set.id} linea={linea} />
               ))}
             </ul>
-            <button type="button" className="carrito-pagina__vaciar" onClick={vaciar}>
+            <button type="button" className="carrito-pagina__vaciar" onClick={vaciarCarrito}>
               Vaciar carrito
             </button>
           </section>

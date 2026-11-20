@@ -3,6 +3,7 @@ import { Heart, Store, UserPlus } from 'lucide-react'
 import AuthHero from "../../components/AuthHero/AuthHero.tsx";
 import AuthTabs from "../../components/AuthTabs/AuthTabs.tsx"
 import { useAuth } from '../../auth/AuthContext'
+import { useToast } from '../../toast/ToastContext.tsx'
 import type { Role } from '../../types.ts'
 import '../LoginPage/AuthPages.css'
 import './RegisterPage.css'
@@ -17,6 +18,7 @@ const OPCIONES = [
 
 export default function RegisterPage() {
   const { register } = useAuth()
+  const toast = useToast()
   // TODO: nombre no se envía todavía: RegisterRequest del backend solo recibe username, password y role.
   const [nombre, setNombre] = useState('')
   const [username, setUsername] = useState('')
@@ -31,6 +33,7 @@ export default function RegisterPage() {
     setLoading(true)
     try {
       await register(username, password, participacion)
+      toast.exito(`Cuenta creada. ¡Bienvenido a SocoBlocks, ${username}!`)
       // register hace login y PublicOnly redirige según el rol (homeFor).
     } catch (err) {
       setError((err as Error).message)

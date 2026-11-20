@@ -5,10 +5,19 @@ import { formatoPrecio } from '../../data/sets.ts'
 import type { SetColeccionable } from '../../data/sets.ts'
 import { useCatalogo } from '../../catalogo/useCatalogo.ts'
 import { useColection } from '../../colection/useColection.ts'
+import { useToast } from '../../toast/ToastContext.tsx'
 import './Colection.css'
 
 export default function Colection() {
-  const { ids, remove } = useColection()
+  const { ids, add, remove } = useColection()
+  const toast = useToast()
+
+  function quitar(set: SetColeccionable) {
+    remove(set.id)
+    toast.info(`${set.nombre} se quitó de tu colección.`, {
+      accion: { texto: 'Deshacer', onClick: () => add(set.id) },
+    })
+  }
   const catalogo = useCatalogo()
 
   // Los ids guardados que ya no existan en el catálogo simplemente no se cuentan ni se muestran
@@ -71,7 +80,7 @@ export default function Colection() {
                   type="button"
                   className="fila-set__boton"
                   aria-label={`Quitar ${set.nombre} de mi colección`}
-                  onClick={() => remove(set.id)}
+                  onClick={() => quitar(set)}
                 >
                   <X size={16} />
                 </button>

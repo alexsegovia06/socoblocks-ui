@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react'
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { useAuth } from '../auth/AuthContext.tsx'
 import type { SetColeccionable } from '../data/sets.ts'
 
@@ -20,6 +20,8 @@ interface CarritoValue {
   cambiarCantidad: (setId: number, cantidad: number) => void
   quitar: (setId: number) => void
   vaciar: () => void
+  // Vuelve a poner una lista de items tal cual (para "Deshacer")
+  restaurar: (items: ItemCarrito[]) => void
   // Panel lateral
   abierto: boolean
   abrir: () => void
@@ -67,12 +69,17 @@ export function CarritoProvider({ children }: { children: ReactNode }) {
     setAbierto(false)
   }
 
+  // Siempre los items más recientes, aunque quien llame tenga una función de un render anterior
+  // (p. ej. el botón "Deshacer" de un aviso)
+  const itemsRef = useRef(items)
+
   useEffect(() => {
+    itemsRef.current = items
     if (username) guardar(username, items)
   }, [username, items])
 
   const agregar = useCallback((set: SetColeccionable, cantidad = 1) => {
-    const actual = items.find((i) => i.setId === set.id)?.cantidad ?? 0
+    const actual = itemsRef.current.find((i) => i.setId === set.id)?.cantidad ?? 0
     // Nunca más unidades de las que hay en stock
     const agregadas = Math.max(0, Math.min(cantidad, set.stock - actual))
     if (agregadas === 0) return 0
@@ -82,7 +89,7 @@ export function CarritoProvider({ children }: { children: ReactNode }) {
         : [...prev, { setId: set.id, cantidad: agregadas }],
     )
     return agregadas
-  }, [items])
+  }, [])
 
   const cambiarCantidad = useCallback((setId: number, cantidad: number) => {
     setItems((prev) =>
@@ -97,6 +104,7 @@ export function CarritoProvider({ children }: { children: ReactNode }) {
   }, [])
 
   const vaciar = useCallback(() => setItems([]), [])
+  const restaurar = useCallback((lista: ItemCarrito[]) => setItems(lista), [])
   const abrir = useCallback(() => setAbierto(true), [])
   const cerrar = useCallback(() => setAbierto(false), [])
 
@@ -108,11 +116,12 @@ export function CarritoProvider({ children }: { children: ReactNode }) {
       cambiarCantidad,
       quitar,
       vaciar,
+      restaurar,
       abierto,
       abrir,
       cerrar,
     }),
-    [items, agregar, cambiarCantidad, quitar, vaciar, abierto, abrir, cerrar],
+    [items, agregar, cambiarCantidad, quitar, vaciar, restaurar, abierto, abrir, cerrar],
   )
 
   return <CarritoContext.Provider value={value}>{children}</CarritoContext.Provider>
