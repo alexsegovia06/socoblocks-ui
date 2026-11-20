@@ -15,8 +15,10 @@ import SellerDashboard from './pages/seller/SellerDashboard/SellerDashboard.tsx'
 import SellerProducts from './pages/seller/SellerProducts/SellerProducts.tsx'
 import SellerOrders from './pages/seller/SellerOrders/SellerOrders.tsx'
 import SellerSettings from './pages/seller/SellerSettings/SellerSettings.tsx'
-import AdminHome from './pages/admin/AdminHome/AdminHome.tsx'
 import AdminDashboard from './pages/admin/AdminDashboard/AdminDashboard.tsx'
+import AdminUsers from './pages/admin/AdminUsers/AdminUsers.tsx'
+import AdminSets from './pages/admin/AdminSets/AdminSets.tsx'
+import AdminReviews from './pages/admin/AdminReviews/AdminReviews.tsx'
 import AdminSettings from './pages/admin/AdminSettings/AdminSettings.tsx'
 
 export default function App() {
@@ -61,8 +63,11 @@ export default function App() {
 
       <Route element={<RequireRole roles={['ADMIN']} />}>
         <Route path="/admin" element={<Layout contained />}>
-          <Route index element={<AdminHome />} />
+          <Route index element={<Navigate to="dashboard" replace />} />
           <Route path="dashboard" element={<AdminDashboard />} />
+          <Route path="users" element={<AdminUsers />} />
+          <Route path="sets" element={<AdminSets />} />
+          <Route path="reviews" element={<AdminReviews />} />
           <Route path="settings" element={<AdminSettings />} />
         </Route>
       </Route>

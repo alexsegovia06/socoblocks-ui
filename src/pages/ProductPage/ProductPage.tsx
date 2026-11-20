@@ -4,6 +4,7 @@ import { useAuth } from '../../auth/AuthContext.tsx'
 import { CATEGORIAS, RESENAS } from '../../data/sets.ts'
 import { useCatalogo } from '../../catalogo/useCatalogo.ts'
 import { useEstadoSets } from '../../catalogo/useEstadoSets.ts'
+import { useResenasOcultas } from '../../resenas/useResenasOcultas.ts'
 import { useColection } from '../../colection/useColection.ts'
 import { useAgregarAlCarrito } from '../../carrito/useAgregarAlCarrito.ts'
 import { useToast } from '../../toast/ToastContext.tsx'
@@ -22,6 +23,7 @@ export default function ProductPage() {
   const coleccion = useColection()
   const { sets, cargando, error } = useCatalogo()
   const { estaActivo } = useEstadoSets()
+  const { estaOculta } = useResenasOcultas()
   const agregarAlCarrito = useAgregarAlCarrito()
   const toast = useToast()
 
@@ -46,7 +48,8 @@ export default function ProductPage() {
   if (!estaActivo(set) && !puedeVerOcultos) return <Navigate to="/" replace />
 
   const categoria = CATEGORIAS.find((c) => c.id === set.categoria)
-  const resenas = RESENAS.filter((r) => r.setId === set.id)
+  // Las reseñas que el admin ocultó por moderación no se muestran
+  const resenas = RESENAS.filter((r) => r.setId === set.id && !estaOculta(r.id))
   const setId = set.id
   const nombre = set.nombre
 
