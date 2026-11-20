@@ -13,6 +13,7 @@ import UserOrders from './pages/user/UserOrders/UserOrders.tsx'
 import UserSettings from './pages/user/UserSettings/UserSettings.tsx'
 import SellerDashboard from './pages/seller/SellerDashboard/SellerDashboard.tsx'
 import SellerProducts from './pages/seller/SellerProducts/SellerProducts.tsx'
+import SellerOrders from './pages/seller/SellerOrders/SellerOrders.tsx'
 import SellerSettings from './pages/seller/SellerSettings/SellerSettings.tsx'
 import AdminHome from './pages/admin/AdminHome/AdminHome.tsx'
 import AdminDashboard from './pages/admin/AdminDashboard/AdminDashboard.tsx'
@@ -53,6 +54,7 @@ export default function App() {
           <Route index element={<Navigate to="dashboard" replace />} />
           <Route path="dashboard" element={<SellerDashboard />} />
           <Route path="products" element={<SellerProducts />} />
+          <Route path="orders" element={<SellerOrders />} />
           <Route path="settings" element={<SellerSettings />} />
         </Route>
       </Route>

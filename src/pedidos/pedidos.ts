@@ -58,6 +58,38 @@ export function leerPedidos(username: string): Pedido[] {
   }
 }
 
+// Pedido junto con el usuario que lo hizo (para el vendedor y el admin)
+export interface PedidoDeCliente extends Pedido {
+  cliente: string
+}
+
+// Todos los pedidos guardados en este navegador, de todos los usuarios, del más reciente al más viejo.
+// TODO: reemplazar por GET /api/pedidos (vendedor/admin) cuando exista el endpoint.
+export function leerTodosLosPedidos(): PedidoDeCliente[] {
+  const todos: PedidoDeCliente[] = []
+  try {
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i)
+      if (!k?.startsWith('pedidos:')) continue
+      const cliente = k.slice('pedidos:'.length)
+      for (const p of leerPedidos(cliente)) todos.push({ ...p, cliente })
+    }
+  } catch {
+    return []
+  }
+  return todos.sort((a, b) => b.fecha.localeCompare(a.fecha))
+}
+
+// TODO: reemplazar por PATCH /api/pedidos/{folio} cuando exista el endpoint.
+export function cambiarEstadoPedido(cliente: string, folio: string, estado: Pedido['estado']) {
+  const pedidos = leerPedidos(cliente).map((p) => (p.folio === folio ? { ...p, estado } : p))
+  try {
+    localStorage.setItem(clave(cliente), JSON.stringify(pedidos))
+  } catch {
+    // Sin almacenamiento el cambio no se conserva
+  }
+}
+
 // Folio corto y legible, p. ej. SB-7K3F9Q
 function nuevoFolio() {
   return `SB-${Date.now().toString(36).slice(-4).toUpperCase()}${Math.random().toString(36).slice(2, 4).toUpperCase()}`

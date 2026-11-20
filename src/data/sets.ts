@@ -13,6 +13,8 @@ export interface SetColeccionable {
   piezas: number
   precio: number
   stock: number
+  // Publicado en la tienda. Uno inactivo no aparece en el catálogo público
+  activo: boolean
   rating: number
   resenas: number
   descripcion: string

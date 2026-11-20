@@ -28,6 +28,7 @@ export function toSet(s: SetApi): SetColeccionable {
     imagen: s.imageUrl,
     categoria: CATEGORIAS_API[s.category] ?? 'clasicos',
     stock: s.stock,
+    activo: s.active !== false, // si el backend no lo manda, se considera publicado
     rating: 0,
     resenas: 0,
     visual: ['🧱', '🧱'],

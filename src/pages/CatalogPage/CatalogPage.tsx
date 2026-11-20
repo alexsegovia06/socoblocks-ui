@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useCatalogo } from '../../catalogo/useCatalogo.ts'
+import { useEstadoSets } from '../../catalogo/useEstadoSets.ts'
 import { useAgregarAlCarrito } from '../../carrito/useAgregarAlCarrito.ts'
 import Hero from '../../components/Hero/Hero.tsx'
 import Filters from '../../components/Filters/Filters.tsx'
@@ -10,7 +11,10 @@ import './CatalogPage.css'
 
 export default function CatalogPage() {
   const [filtros, setFiltros] = useState<FiltrosState>(FILTROS_INICIALES)
-  const { sets, cargando, error, recargar } = useCatalogo()
+  const { sets: todos, cargando, error, recargar } = useCatalogo()
+  const { estaActivo } = useEstadoSets()
+  // Los sets que el vendedor ocultó no se muestran en la tienda
+  const sets = todos.filter(estaActivo)
   const agregarAlCarrito = useAgregarAlCarrito()
 
   const destacado = sets.find((s) => s.id === HERO_DESTACADO.setId)
@@ -33,7 +37,7 @@ export default function CatalogPage() {
           onAgregar={(set: SetColeccionable) => agregarAlCarrito(set)}
           cargando={cargando}
           // Si ya había sets guardados y solo falló la actualización, se siguen mostrando
-          error={sets.length === 0 ? error : null}
+          error={todos.length === 0 ? error : null}
           onReintentar={recargar}
         />
       </div>

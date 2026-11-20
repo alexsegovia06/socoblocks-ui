@@ -35,6 +35,10 @@
   color: #2f9a63;
 }
 
+.seller-dashboard__trend--baja {
+  color: #b42318;
+}
+
 .seller-dashboard__actions {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

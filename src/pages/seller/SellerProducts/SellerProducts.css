@@ -44,7 +44,7 @@
   box-shadow: 0 6px 14px rgba(184, 65, 61, 0.3);
 }
 
-.seller-products__new:hover {
+.seller-products__new:hover:not(:disabled) {
   opacity: 1;
   background: var(--ib-red-dark);
 }
@@ -132,15 +132,166 @@
   color: var(--ib-red);
 }
 
-.seller-products__status {
-  display: inline-block;
-  padding: 2px 11px;
-  border: 1px solid #c9ecd7;
+.seller-products__visual img {
+  width: 100%;
+  height: 100%;
+  border-radius: 11px;
+  object-fit: cover;
+}
+
+.seller-products__name a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.seller-products__name a:hover {
+  color: var(--ib-red);
+}
+
+/* Filtros */
+.seller-products__filtros {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: -12px;
+}
+
+.seller-products__buscar {
+  flex: 1 1 260px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 14px;
+  border: 1px solid var(--ib-border);
+  border-radius: 12px;
+  background: #fff;
+  color: #9aa0ab;
+  font-weight: 400;
+}
+
+.seller-products__buscar input {
+  flex: 1;
+  min-width: 0;
+  padding: 11px 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 14.5px;
+  color: var(--ib-ink);
+}
+
+.seller-products__buscar:focus-within {
+  border-color: var(--ib-red);
+  outline: 3px solid rgba(184, 65, 61, 0.15);
+}
+
+.seller-products__filtros select {
+  padding: 11px 12px;
+  border: 1px solid var(--ib-border);
+  border-radius: 12px;
+  background: #fff;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--ib-ink);
+  cursor: pointer;
+}
+
+.seller-products__limpiar {
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: transparent;
+  font-size: 14px;
+  color: var(--ib-red);
+}
+
+.seller-products__limpiar:hover {
+  background: #fdf3f2;
+  opacity: 1;
+}
+
+.seller-products__estado {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--ib-muted);
+}
+
+.seller-products__caption {
+  padding: 14px 20px;
+  caption-side: bottom;
+  font-size: 13px;
+  text-align: left;
+  color: var(--ib-muted);
+}
+
+/* Switch Activo / Inactivo */
+.seller-products__switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 6px 4px 0;
   border-radius: 999px;
-  background: #ecfaf1;
-  font-size: 15px;
+  background: transparent;
+  font-size: 14px;
   font-weight: 700;
+  color: var(--ib-muted);
+}
+
+.seller-products__switch:hover {
+  opacity: 1;
+}
+
+.seller-products__switch-pista {
+  position: relative;
+  width: 40px;
+  height: 22px;
+  border-radius: 999px;
+  background: #cbd5e1;
+  transition: background 0.15s ease;
+}
+
+.seller-products__switch-bola {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: transform 0.15s ease;
+}
+
+.seller-products__switch--on {
   color: #2f9a63;
+}
+
+.seller-products__switch--on .seller-products__switch-pista {
+  background: #2f9a63;
+}
+
+.seller-products__switch--on .seller-products__switch-bola {
+  transform: translateX(18px);
+}
+
+.seller-products__switch:focus-visible {
+  outline: 3px solid rgba(47, 154, 99, 0.3);
+}
+
+.seller-products__fila--inactiva td:not(:nth-last-child(-n + 2)) {
+  opacity: 0.55;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .seller-products__switch-pista,
+  .seller-products__switch-bola {
+    transition: none;
+  }
 }
 
 .seller-products__actions-col {
@@ -160,9 +311,19 @@
   color: #9ca3af;
 }
 
-.seller-products__actions button:hover {
+.seller-products__actions button:hover:not(:disabled) {
   opacity: 1;
   color: var(--ib-ink);
+}
+
+.seller-products__actions button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.seller-products__new:disabled {
+  box-shadow: none;
+  cursor: not-allowed;
 }
 
 @media (max-width: 1024px) {
@@ -216,7 +377,7 @@
 
   .seller-products__table td,
   .seller-products__stock,
-  .seller-products__status {
+  .seller-products__switch {
     font-size: 14px;
   }
 

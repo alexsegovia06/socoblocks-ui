@@ -3,6 +3,7 @@ import { Link, Navigate, useNavigate, useParams } from 'react-router'
 import { useAuth } from '../../auth/AuthContext.tsx'
 import { CATEGORIAS, RESENAS } from '../../data/sets.ts'
 import { useCatalogo } from '../../catalogo/useCatalogo.ts'
+import { useEstadoSets } from '../../catalogo/useEstadoSets.ts'
 import { useColection } from '../../colection/useColection.ts'
 import { useAgregarAlCarrito } from '../../carrito/useAgregarAlCarrito.ts'
 import { useToast } from '../../toast/ToastContext.tsx'
@@ -20,6 +21,7 @@ export default function ProductPage() {
   const wishlist = useWishlist()
   const coleccion = useColection()
   const { sets, cargando, error } = useCatalogo()
+  const { estaActivo } = useEstadoSets()
   const agregarAlCarrito = useAgregarAlCarrito()
   const toast = useToast()
 
@@ -38,6 +40,10 @@ export default function ProductPage() {
     if (error) return <main className="producto"><p className="error">{error}</p></main>
     return <Navigate to="/" replace />
   }
+
+  // Un set oculto solo lo pueden abrir el vendedor y el admin (p. ej. desde su tabla de productos)
+  const puedeVerOcultos = user?.role === 'VENDEDOR' || user?.role === 'ADMIN'
+  if (!estaActivo(set) && !puedeVerOcultos) return <Navigate to="/" replace />
 
   const categoria = CATEGORIAS.find((c) => c.id === set.categoria)
   const resenas = RESENAS.filter((r) => r.setId === set.id)
@@ -112,7 +118,7 @@ export default function ProductPage() {
 
       <ProductReviews resenas={resenas} />
 
-      <RelatedSets set={set} catalogo={sets} onAgregar={(s) => agregarAlCarrito(s)} />
+      <RelatedSets set={set} catalogo={sets.filter(estaActivo)} onAgregar={(s) => agregarAlCarrito(s)} />
     </main>
   )
 }
