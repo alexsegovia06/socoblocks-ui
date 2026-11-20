@@ -1,19 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 
 .layout {
-  --ib-red: #b8413d;
-  --ib-red-dark: #a23733;
-  --ib-ink: #16192c;
-  --ib-muted: #6b7280;
-  --ib-field: #f4f5f7;
-  --ib-border: #e5e7eb;
-
+  /* Los colores (--ib-*) viven en :root (src/index.css) para que el tema oscuro los cambie */
   display: flex;
   flex-direction: column;
   height: 100vh;
   height: 100dvh;
   overflow: hidden;
-  background: #f7f8fa;
+  background: var(--ib-bg);
   color: var(--ib-ink);
   font-family: 'Poppins', system-ui, sans-serif;
 }

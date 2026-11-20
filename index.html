@@ -5,6 +5,19 @@
     <link rel="icon" type="image/svg+xml" href="\sets\socoblocks-favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SocoBlocks | Sets Pop Mexicanos</title>
+    <!-- Aplica el tema guardado (o el del sistema) antes de pintar, para que no haya destello blanco -->
+    <script>
+      (function () {
+        var tema = 'light'
+        try {
+          var guardado = localStorage.getItem('tema')
+          tema = guardado === 'light' || guardado === 'dark'
+            ? guardado
+            : matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        } catch (e) {}
+        document.documentElement.dataset.theme = tema
+      })()
+    </script>
   </head>
   <body>
     <div id="root"></div>

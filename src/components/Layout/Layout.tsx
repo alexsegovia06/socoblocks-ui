@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router'
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
+import CartDrawer from '../CartDrawer/CartDrawer.tsx'
 import './Layout.css'
 
 interface Props {
@@ -23,6 +24,7 @@ export default function Layout({ contained }: Props) {
                 </div>
                 <Footer />
             </div>
+            <CartDrawer />
         </div>
     )
 }

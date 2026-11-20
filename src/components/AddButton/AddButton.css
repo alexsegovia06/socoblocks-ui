@@ -15,7 +15,7 @@
 }
 
 .boton-agregar:disabled {
-  background: #cbd5e1;
+  background: var(--ib-disabled);
   box-shadow: none;
   cursor: not-allowed;
   opacity: 1;

@@ -1,5 +1,5 @@
 .site-header {
-  background: #fff;
+  background: var(--ib-surface);
   border-bottom: 1px solid var(--ib-border);
 }
 

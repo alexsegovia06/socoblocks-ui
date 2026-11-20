@@ -8,6 +8,7 @@ import {
 import { api, ApiError } from "../api.ts";
 import type { Role, User } from "../types.ts";
 import { readToken } from "./jwt.ts";
+import { registrarAcceso } from "../usuarios/registro.ts";
 
 interface AuthValue {
   user: User | null;
@@ -72,6 +73,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       throw err;
     }
   }
+
+  // Recordar quién entra en este navegador (respaldo de la página de usuarios del admin)
+  const username = user?.username;
+  const role = user?.role;
+  useEffect(() => {
+    if (username && role) registrarAcceso(username, role);
+  }, [username, role]);
 
   // Log out automatically when the token expires.
   const expiresAt = claims?.exp;

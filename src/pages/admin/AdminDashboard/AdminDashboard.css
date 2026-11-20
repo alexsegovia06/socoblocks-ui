@@ -19,7 +19,7 @@
 
 .admin-dashboard__header p {
   font-size: 15.5px;
-  color: #4b5567;
+  color: var(--ib-text-2);
 }
 
 .admin-dashboard__stats {
@@ -28,17 +28,68 @@
   gap: 32px;
 }
 
-.admin-dashboard__trend {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: #2f9a63;
-}
-
 .admin-dashboard__actions {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 32px;
+}
+
+/* Pedidos recientes */
+.admin-dashboard__pedidos {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 26px 30px;
+  border: 1px solid var(--ib-border);
+  border-radius: 18px;
+  background: var(--ib-surface);
+}
+
+.admin-dashboard__pedidos h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.admin-dashboard__pedidos ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.admin-dashboard__pedidos li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--ib-border);
+}
+
+.admin-dashboard__pedidos li:last-child {
+  border-bottom: none;
+}
+
+.admin-dashboard__pedidos li > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-dashboard__pedidos small,
+.admin-dashboard__vacio {
+  font-size: 13px;
+  color: var(--ib-muted);
+}
+
+.admin-dashboard__ver {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ib-red);
+  text-decoration: none;
 }
 
 @media (max-width: 1024px) {
@@ -57,6 +108,14 @@
   .admin-dashboard__stats,
   .admin-dashboard__actions {
     gap: 20px;
+  }
+
+  .admin-dashboard__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .admin-dashboard__actions {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -100,6 +159,15 @@
 
   .admin-dashboard__header p {
     font-size: 14px;
+  }
+
+  .admin-dashboard__pedidos {
+    padding: 20px 16px;
+  }
+
+  .admin-dashboard__pedidos li {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 4px 10px;
   }
 
   .admin-dashboard__stats,

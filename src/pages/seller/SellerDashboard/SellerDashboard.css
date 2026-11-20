@@ -19,7 +19,7 @@
 
 .seller-dashboard__header p {
   font-size: 15.5px;
-  color: #4b5567;
+  color: var(--ib-text-2);
 }
 
 .seller-dashboard__stats {
@@ -32,7 +32,11 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  color: #2f9a63;
+  color: var(--ib-success);
+}
+
+.seller-dashboard__trend--baja {
+  color: var(--ib-danger);
 }
 
 .seller-dashboard__actions {

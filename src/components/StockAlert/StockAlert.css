@@ -3,10 +3,10 @@
   align-items: center;
   gap: 16px;
   padding: 30px 30px 30px 32px;
-  border: 1px solid #f6ebc8;
+  border: 1px solid var(--ib-warn-border);
   border-left: 5px solid #e3a33b;
   border-radius: 18px;
-  background: #fdf8e8;
+  background: var(--ib-warn-soft);
 }
 
 .stock-alert__icon {
@@ -16,13 +16,13 @@
   width: 52px;
   height: 52px;
   border-radius: 12px;
-  background: #fbefcb;
-  color: #8a5513;
+  background: var(--ib-warn-soft);
+  color: var(--ib-warn-ink);
 }
 
 .stock-alert__text {
   flex: 1;
-  color: #7a4a14;
+  color: var(--ib-warn-ink);
 }
 
 .stock-alert__text h2 {
@@ -30,7 +30,7 @@
   font-size: 18px;
   font-weight: 800;
   text-transform: uppercase;
-  color: #6b3c0d;
+  color: var(--ib-warn-ink);
 }
 
 .stock-alert__text p {
@@ -39,12 +39,12 @@
 
 .stock-alert__text strong {
   font-weight: 700;
-  color: #6b3c0d;
+  color: var(--ib-warn-ink);
 }
 
 .stock-alert__text a {
   font-weight: 700;
-  color: #6b3c0d;
+  color: var(--ib-warn-ink);
 }
 
 .stock-alert__button {
@@ -56,6 +56,8 @@
   font-family: inherit;
   font-size: 15px;
   font-weight: 700;
+  text-align: center;
+  text-decoration: none;
   box-shadow: 0 4px 10px rgba(227, 163, 59, 0.35);
 }
 

@@ -1,0 +1,257 @@
+/* Estilos compartidos por /cart y /checkout */
+.carrito-pagina {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 32px 36px 48px;
+}
+
+.carrito-pagina__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.carrito-pagina__head h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.carrito-pagina__head p {
+  color: var(--ib-muted);
+}
+
+.carrito-pagina__seguir {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ib-ink);
+  text-decoration: none;
+}
+
+.carrito-pagina__seguir:hover {
+  color: var(--ib-red);
+}
+
+.carrito-pagina__cuerpo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  align-items: start;
+  gap: 28px;
+}
+
+.carrito-pagina__card {
+  padding: 8px 28px 24px;
+  border: 1px solid var(--ib-border);
+  border-radius: 20px;
+  background: var(--ib-surface);
+}
+
+.carrito-pagina__lista {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.carrito-pagina__vaciar {
+  margin-top: 8px;
+  padding: 8px 0;
+  background: none;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ib-muted);
+  text-decoration: underline;
+}
+
+.carrito-pagina__vaciar:hover {
+  color: var(--ib-danger);
+  opacity: 1;
+}
+
+.carrito-pagina__resumen {
+  position: sticky;
+  top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 24px;
+}
+
+.carrito-pagina__resumen h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.carrito-pagina__resumen dl {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.carrito-pagina__resumen dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 15px;
+}
+
+.carrito-pagina__resumen dt {
+  color: var(--ib-muted);
+}
+
+.carrito-pagina__resumen dd {
+  font-weight: 600;
+}
+
+.carrito-pagina__gratis {
+  color: var(--ib-success);
+}
+
+.carrito-pagina__total {
+  padding-top: 12px;
+  border-top: 1px solid var(--ib-border);
+}
+
+.carrito-pagina__total dt {
+  font-weight: 700;
+  color: var(--ib-ink);
+}
+
+.carrito-pagina__total dd {
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.carrito-pagina__boton {
+  display: block;
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 12px;
+  background: var(--ib-red);
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+}
+
+.carrito-pagina__boton:hover:not(:disabled) {
+  background: var(--ib-red-dark);
+  opacity: 1;
+}
+
+.carrito-pagina__boton:disabled {
+  background: var(--ib-disabled);
+  opacity: 1;
+  cursor: not-allowed;
+}
+
+.carrito-pagina__nota {
+  font-size: 13px;
+  color: var(--ib-danger);
+}
+
+.carrito-pagina__beneficios {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 4px 0 0;
+  padding: 14px 0 0;
+  border-top: 1px solid var(--ib-border);
+  list-style: none;
+  font-size: 13px;
+  color: var(--ib-muted);
+}
+
+.carrito-pagina__beneficios li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.carrito-pagina__vacio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 56px 24px;
+  border: 1px dashed var(--ib-border);
+  border-radius: 20px;
+  background: var(--ib-surface);
+  text-align: center;
+  color: var(--ib-muted);
+}
+
+.carrito-pagina__vacio strong {
+  font-size: 19px;
+  color: var(--ib-ink);
+}
+
+.carrito-pagina__vacio .carrito-pagina__boton {
+  width: auto;
+  margin-top: 10px;
+}
+
+@media (max-width: 1024px) {
+  .carrito-pagina {
+    padding: 28px 24px 40px;
+  }
+
+  .carrito-pagina__cuerpo {
+    grid-template-columns: minmax(0, 1fr) 300px;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .carrito-pagina {
+    gap: 22px;
+    padding: 24px 20px 36px;
+  }
+
+  .carrito-pagina__head h1 {
+    font-size: 26px;
+  }
+
+  .carrito-pagina__cuerpo {
+    grid-template-columns: 1fr;
+  }
+
+  .carrito-pagina__resumen {
+    position: static;
+  }
+}
+
+@media (max-width: 425px) {
+  .carrito-pagina {
+    padding: 16px 16px 28px;
+  }
+
+  .carrito-pagina__card {
+    padding: 4px 16px 18px;
+    border-radius: 16px;
+  }
+
+  .carrito-pagina__resumen {
+    padding-top: 18px;
+  }
+}
+
+@media (max-width: 320px) {
+  .carrito-pagina {
+    padding: 12px 12px 24px;
+  }
+
+  .carrito-pagina__head h1 {
+    font-size: 22px;
+  }
+}

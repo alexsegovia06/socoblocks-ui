@@ -3,11 +3,13 @@ import { ArrowRight } from 'lucide-react'
 import AuthHero from "../../components/AuthHero/AuthHero.tsx";
 import AuthTabs from '../../components/AuthTabs/AuthTabs.tsx'
 import { useAuth } from '../../auth/AuthContext.tsx'
+import { useToast } from '../../toast/ToastContext.tsx'
 import './LoginPage.css'
 import './AuthPages.css'
 
 export default function LoginPage() {
   const { login } = useAuth()
+  const toast = useToast()
   //El campo "Correo electrónico" del diseño se envía como `username` (es lo que recibe /api/auth/login).
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
@@ -21,6 +23,7 @@ export default function LoginPage() {
     setLoading(true)
     try {
       await login(username, password)
+      toast.exito(`¡Hola de nuevo, ${username}!`)
     } catch (err) {
       setError((err as Error).message)
       setLoading(false)
