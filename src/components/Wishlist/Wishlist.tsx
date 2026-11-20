@@ -1,18 +1,19 @@
 import { Heart, PackageCheck, X } from 'lucide-react'
 import StockTag from '../StockTag/StockTag.tsx'
 import ProfileSection, { FilaSet } from '../ProfileSection/ProfileSection.tsx'
-import { SETS } from '../../data/sets.ts'
 import type { SetColeccionable } from '../../data/sets.ts'
+import { useCatalogo } from '../../catalogo/useCatalogo.ts'
 import { useColection } from '../../colection/useColection.ts'
 import { useWishlist } from '../../wishlist/useWishlist.ts'
 
 export default function Wishlist() {
   const { ids, remove } = useWishlist()
   const coleccion = useColection()
+  const catalogo = useCatalogo()
 
   // Los ids guardados que ya no existan en el catálogo simplemente no se muestran
   const sets = ids
-    .map((id) => SETS.find((s) => s.id === id))
+    .map((id) => catalogo.sets.find((s) => s.id === id))
     .filter((s): s is SetColeccionable => s !== undefined)
 
   // Un set que ya tienes deja de ser un deseo: pasa de la wishlist a la colección

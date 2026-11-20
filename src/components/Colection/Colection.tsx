@@ -1,20 +1,22 @@
 import { Link } from 'react-router'
 import { Blocks, X } from 'lucide-react'
 import ProfileSection, { FilaSet } from '../ProfileSection/ProfileSection.tsx'
-import { SETS, formatoPrecio } from '../../data/sets.ts'
+import { formatoPrecio } from '../../data/sets.ts'
 import type { SetColeccionable } from '../../data/sets.ts'
+import { useCatalogo } from '../../catalogo/useCatalogo.ts'
 import { useColection } from '../../colection/useColection.ts'
 import './Colection.css'
 
 export default function Colection() {
   const { ids, remove } = useColection()
+  const catalogo = useCatalogo()
 
   // Los ids guardados que ya no existan en el catálogo simplemente no se cuentan ni se muestran
   const sets = ids
-    .map((id) => SETS.find((s) => s.id === id))
+    .map((id) => catalogo.sets.find((s) => s.id === id))
     .filter((s): s is SetColeccionable => s !== undefined)
 
-  const total = SETS.length
+  const total = catalogo.sets.length
   const porcentaje = total === 0 ? 0 : Math.round((sets.length / total) * 100)
   const piezas = sets.reduce((suma, s) => suma + s.piezas, 0)
   // Suma de los precios actuales del catálogo, no de lo que se pagó
