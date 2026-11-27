@@ -110,6 +110,26 @@
   text-decoration: none;
 }
 
+@media (max-width: 1024px) {
+  .user-home__dato {
+    padding: 16px 18px;
+  }
+
+  .user-home__dato > strong {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 768px) {
+  .user-home__dato > strong {
+    font-size: 25px;
+  }
+
+  .user-home__pedidos li {
+    gap: 12px;
+  }
+}
+
 @media (max-width: 425px) {
   .user-home__stats {
     gap: 10px;
@@ -132,5 +152,17 @@
 @media (max-width: 320px) {
   .user-home__stats {
     grid-template-columns: 1fr;
+  }
+
+  .user-home__dato {
+    padding: 12px;
+  }
+
+  .user-home__dato > strong {
+    font-size: 22px;
+  }
+
+  .user-home__etiqueta {
+    font-size: 13px;
   }
 }

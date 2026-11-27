@@ -62,8 +62,40 @@
   gap: 10px;
 }
 
+@media (max-width: 1024px) {
+  .admin-reviews__item {
+    padding: 18px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-reviews__comentario {
+    font-size: 14.5px;
+  }
+}
+
 @media (max-width: 425px) {
   .admin-reviews__item {
     padding: 16px;
+    border-radius: 14px;
+  }
+
+  .admin-reviews__comentario {
+    font-size: 14px;
+  }
+
+  .admin-reviews__pie {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 320px) {
+  .admin-reviews__item {
+    padding: 12px;
+  }
+
+  .admin-reviews__comentario {
+    font-size: 13.5px;
   }
 }

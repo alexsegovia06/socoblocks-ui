@@ -11,9 +11,9 @@ export const NAV_LINKS: Record<Role, NavItem[]> = {
     { to: '/user/settings', label: 'Ajustes' },
   ],
   VENDEDOR: [
-    { to: '/', label: 'Catálogo' },
+    { to: '/', label: 'Productos' },
     { to: '/seller/dashboard', label: 'Dashboard' },
-    { to: '/seller/products', label: 'Productos' },
+    { to: '/seller/products', label: 'Catálogo' },
     { to: '/seller/orders', label: 'Órdenes' },
     { to: '/seller/settings', label: 'Ajustes' },
   ],
