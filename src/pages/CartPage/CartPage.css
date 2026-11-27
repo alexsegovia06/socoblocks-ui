@@ -241,8 +241,25 @@
     border-radius: 16px;
   }
 
+  .carrito-pagina__head h1 {
+    font-size: 24px;
+  }
+
   .carrito-pagina__resumen {
     padding-top: 18px;
+  }
+
+  .carrito-pagina__resumen h2 {
+    font-size: 18px;
+  }
+
+  .carrito-pagina__total dd {
+    font-size: 20px;
+  }
+
+  .carrito-pagina__vacio {
+    padding: 40px 18px;
+    border-radius: 16px;
   }
 }
 
@@ -253,5 +270,18 @@
 
   .carrito-pagina__head h1 {
     font-size: 22px;
+  }
+
+  .carrito-pagina__card {
+    padding: 4px 12px 14px;
+  }
+
+  .carrito-pagina__resumen dl > div {
+    font-size: 14px;
+  }
+
+  .carrito-pagina__boton {
+    padding: 12px 16px;
+    font-size: 14px;
   }
 }

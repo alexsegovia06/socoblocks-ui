@@ -1,4 +1,5 @@
 .site-header {
+  position: relative; /* el menú hamburguesa se posiciona respecto al header */
   background: var(--ib-surface);
   border-bottom: 1px solid var(--ib-border);
 }

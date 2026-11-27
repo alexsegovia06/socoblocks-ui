@@ -385,6 +385,10 @@
   .seller-products__price {
     font-size: 15px !important;
   }
+
+  .seller-products__filtros select {
+    flex: 1 1 160px;
+  }
 }
 
 @media (max-width: 425px) {
@@ -431,6 +435,73 @@
   .seller-products__actions {
     gap: 10px;
   }
+
+  .seller-products__filtros {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .seller-products__buscar,
+  .seller-products__filtros select {
+    flex: none;
+  }
+
+  /* En teléfono la tabla se vuelve una lista de tarjetas */
+  .seller-products__card {
+    overflow: visible;
+  }
+
+  .seller-products__table,
+  .seller-products__table tbody {
+    display: block;
+    white-space: normal;
+  }
+
+  .seller-products__table thead {
+    display: none;
+  }
+
+  .seller-products__caption {
+    display: block;
+    padding: 12px 14px;
+  }
+
+  .seller-products__table tbody tr {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-areas:
+      'visual nombre nombre'
+      'visual categoria precio'
+      'stock estatus acciones';
+    align-items: center;
+    gap: 6px 12px;
+    padding: 14px;
+    border-bottom: 1px solid var(--ib-border-soft);
+  }
+
+  .seller-products__table tbody tr:last-child {
+    border-bottom: 0;
+  }
+
+  .seller-products__table td,
+  .seller-products__table td:first-child {
+    padding: 0;
+    border: 0;
+  }
+
+  .seller-products__table td:nth-child(1) { grid-area: visual; }
+  .seller-products__table td:nth-child(2) { grid-area: nombre; }
+  .seller-products__table td:nth-child(3) { grid-area: categoria; }
+  .seller-products__table td:nth-child(4) { grid-area: precio; }
+  .seller-products__table td:nth-child(5) { grid-area: stock; }
+  .seller-products__table td:nth-child(6) { grid-area: estatus; }
+  .seller-products__table td:nth-child(7) { grid-area: acciones; }
+
+  .seller-products__table td:nth-child(5),
+  .seller-products__table td:nth-child(6) {
+    margin-top: 6px;
+  }
 }
 
 @media (max-width: 320px) {
@@ -446,9 +517,19 @@
     font-size: 15px;
   }
 
-  .seller-products__table th,
-  .seller-products__table td {
-    padding: 10px;
+  .seller-products__table tbody tr {
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-areas:
+      'visual nombre'
+      'visual categoria'
+      'visual precio'
+      'stock acciones'
+      'estatus estatus';
+    padding: 12px;
+  }
+
+  .seller-products__table td:nth-child(7) {
+    text-align: right;
   }
 
   .seller-products__visual {
