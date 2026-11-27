@@ -13,6 +13,10 @@ export interface NavItem {
   label: string
 }
 
+// Nombres o correos largos descuadran el header: se muestran los primeros 20 caracteres y "..."
+const MAX_USUARIO = 20
+const recortar = (texto: string) => (texto.length > MAX_USUARIO ? `${texto.slice(0, MAX_USUARIO)}...` : texto)
+
 export default function Navbar() {
   const { user, logout } = useAuth()
   const links = user ? NAV_LINKS[user.role] : null
@@ -74,7 +78,9 @@ export default function Navbar() {
 
         {user ? (
           <>
-            <span className="navbar__user">{user.username}</span>
+            <span className="navbar__user" title={user.username}>
+              {recortar(user.username)}
+            </span>
             <button type="button" className="navbar__session" onClick={salir}>
               <LogOut size={14} />
               Salir
