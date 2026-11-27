@@ -217,82 +217,112 @@
 }
 
 @media (max-width: 425px) {
+  /* En teléfono solo queda lo esencial: etiqueta, título, imagen y precio + botón juntos */
   .banner {
-    gap: 22px;
-    padding: 24px 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    padding: 20px 16px;
     border-radius: 20px;
   }
 
+  .banner__texto {
+    display: contents;
+  }
+
   .banner__pill {
+    order: 1;
+    align-self: flex-start;
     font-size: 11px;
   }
 
   .banner__titulo {
-    margin-top: 16px;
-    font-size: 30px;
+    order: 2;
+    margin-top: 0;
+    font-size: 28px;
     letter-spacing: -1px;
   }
 
-  .banner__desc {
-    margin-top: 16px;
-    font-size: 15px;
+  .banner__visual {
+    order: 3;
+    aspect-ratio: 16 / 10;
+    border-width: 3px;
+    border-radius: 16px;
   }
 
   .banner__acciones {
-    gap: 12px;
-    margin-top: 22px;
+    order: 4;
+    flex-wrap: nowrap;
+    gap: 10px;
+    margin-top: 0;
+  }
+
+  .banner__desc,
+  .banner__dato--piezas,
+  .banner__disponibles,
+  .banner__caption {
+    display: none;
+  }
+
+  .banner__dato {
+    flex: none;
+    padding: 8px 12px;
+    border-radius: 12px;
+  }
+
+  .banner__dato small {
+    font-size: 11px;
   }
 
   .banner__dato strong {
-    font-size: 24px;
+    font-size: 20px;
+    white-space: nowrap;
+  }
+
+  .banner__dato strong span {
+    font-size: 11px;
   }
 
   .banner__boton {
-    flex: 1 1 100%;
+    flex: 1;
     justify-content: center;
-    padding: 14px 20px;
-    font-size: 16px;
-  }
-
-  .banner__visual {
-    border-width: 3px;
-    border-radius: 16px;
+    align-self: stretch;
+    padding: 12px 14px;
+    font-size: 15px;
+    text-align: center;
   }
 
   .banner__placeholder {
     font-size: 48px;
   }
-
-  .banner__caption {
-    right: 10px;
-    bottom: 10px;
-    left: 10px;
-    padding: 10px 12px;
-  }
-
-  .banner__caption strong {
-    font-size: 14px;
-  }
 }
 
 @media (max-width: 320px) {
   .banner {
-    padding: 20px 14px;
+    gap: 12px;
+    padding: 16px 12px;
   }
 
   .banner__titulo {
-    font-size: 26px;
-  }
-
-  .banner__desc {
-    font-size: 14px;
+    font-size: 23px;
   }
 
   .banner__dato {
-    flex: 1 1 100%;
+    padding: 6px 10px;
   }
 
-  .banner__caption em {
+  .banner__dato small {
     display: none;
+  }
+
+  .banner__dato strong {
+    font-size: 17px;
+  }
+
+  .banner__boton {
+    gap: 6px;
+    padding: 10px;
+    font-size: 13px;
   }
 }
