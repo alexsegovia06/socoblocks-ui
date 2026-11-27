@@ -109,6 +109,43 @@
   color: var(--ib-muted);
 }
 
+/* En escritorio el contenedor del menú no existe para el layout: sus hijos se acomodan en la fila.
+   Con order se mantiene el orden links · tema · carrito · usuario · sesión */
+.navbar__menu {
+  display: contents;
+}
+
+.navbar__link {
+  order: 0;
+}
+
+.navbar__actions > .theme-toggle {
+  order: 1;
+}
+
+.navbar__cart {
+  order: 2;
+}
+
+.navbar__user,
+.navbar__session {
+  order: 3;
+}
+
+.navbar__burger {
+  display: none;
+  order: 4;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid var(--ib-border);
+  border-radius: 10px;
+  background: var(--ib-field);
+  color: var(--ib-ink);
+  cursor: pointer;
+}
+
 @media (max-width: 1024px) {
   .navbar {
     gap: 20px;
@@ -142,22 +179,57 @@
 
 @media (max-width: 425px) {
   .navbar__actions {
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    gap: 10px 14px;
+    gap: 14px;
   }
 
-  .navbar__link {
-    font-size: 13px;
+  .navbar__burger {
+    display: grid;
+  }
+
+  /* El menú se despliega debajo del header, a todo el ancho */
+  .navbar__menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    padding: 10px 16px 16px;
+    border-bottom: 1px solid var(--ib-border);
+    background: var(--ib-surface);
+    box-shadow: 0 12px 24px rgba(22, 25, 44, 0.12);
+  }
+
+  .navbar__menu--abierto {
+    display: flex;
+  }
+
+  .navbar__menu .navbar__link {
+    padding: 12px 10px;
+    border-radius: 10px;
+    font-size: 15px;
+  }
+
+  .navbar__menu .navbar__link:hover,
+  .navbar__menu .navbar__link.active {
+    background: var(--ib-field);
   }
 
   .navbar__user {
-    display: none;
+    margin-top: 6px;
+    padding: 10px 10px 4px;
+    border-top: 1px solid var(--ib-border);
+    font-size: 13px;
   }
 
   .navbar__session {
-    padding: 9px 14px;
-    font-size: 12px;
+    justify-content: center;
+    margin-top: 6px;
+    padding: 12px 16px;
+    font-size: 14px;
   }
 
   .navbar__search {
@@ -172,12 +244,20 @@
 
 @media (max-width: 320px) {
   .navbar__actions {
-    gap: 8px 10px;
+    gap: 10px;
   }
 
-  .navbar__session {
-    gap: 0;
-    padding: 9px;
-    font-size: 0;
+  .navbar__burger {
+    width: 36px;
+    height: 36px;
+  }
+
+  .navbar__menu {
+    padding: 8px 12px 14px;
+  }
+
+  .navbar__menu .navbar__link {
+    padding: 10px 8px;
+    font-size: 14px;
   }
 }
