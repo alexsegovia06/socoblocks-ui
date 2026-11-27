@@ -1,75 +1,112 @@
-# React + TypeScript + Vite
+# SocoBlocks UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend de **SocoBlocks**, un marketplace de sets de bloques de construcción para coleccionistas. Está hecho con **React 19 + TypeScript + Vite** y se conecta a un backend en **Spring Boot**.
 
-Currently, two official plugins are available:
+## Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### Público (invitado)
+- Catálogo de sets con filtros, estado de carga y manejo de errores
+- Detalle de producto con galería, información, reseñas y sets relacionados
+- Registro e inicio de sesión
 
-## React Compiler
+### Coleccionista
+- Inicio con resumen de su actividad
+- Carrito con panel lateral, página de carrito y checkout
+- Mis pedidos con estado de cada orden
+- Perfil, colección, wishlist y configuración de la cuenta
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Vendedor
+- Dashboard con estadísticas y alertas de stock
+- Gestión de productos con filtros y switch de estatus
+- Página de órdenes recibidas
 
-## Expanding the ESLint configuration
+### Administrador
+- Dashboard propio
+- Gestión de usuarios y cambio de roles
+- Aprobación de sets
+- Moderación de reseñas
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### General
+- Modo oscuro con botón para cambiar de tema
+- Avisos breves (toasts) en las acciones principales
+- Diseño responsive (1024px, 768px, 425px y 320px)
+- Rutas protegidas por rol con autenticación JWT
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Tecnologías
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+| Herramienta | Uso |
+|---|---|
+| [React 19](https://react.dev/) | Interfaz de usuario |
+| [TypeScript](https://www.typescriptlang.org/) | Tipado estático |
+| [Vite](https://vite.dev/) | Servidor de desarrollo y build |
+| [React Router 7](https://reactrouter.com/) | Navegación y rutas protegidas |
+| [Lucide React](https://lucide.dev/) | Íconos |
+| ESLint | Linter |
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Cómo correr el proyecto
 
+### Requisitos
+- Node.js 20 o superior
+- El backend de SocoBlocks (Spring Boot) corriendo en `http://localhost:8080`
+
+### Instalación
+
+```bash
+git clone https://github.com/alexsegovia06/socoblocks-ui.git
+cd socoblocks-ui
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+La app queda disponible en `http://localhost:5173`.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+> Las peticiones a `/api/...` se redirigen automáticamente al backend mediante el proxy configurado en `vite.config.ts`.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Scripts
+
+| Comando | Descripción |
+|---|---|
+| `npm run dev` | Inicia el servidor de desarrollo |
+| `npm run build` | Compila TypeScript y genera el build de producción en `dist/` |
+| `npm run preview` | Sirve el build de producción localmente |
+| `npm run lint` | Revisa el código con ESLint |
+
+## Roles y rutas
+
+| Rol | Rutas |
+|---|---|
+| Invitado | `/`, `/products/:id`, `/login`, `/register` |
+| Cualquier usuario con sesión | `/cart`, `/checkout` |
+| `COLECCIONISTA` | `/user`, `/user/orders`, `/user/profile`, `/user/settings` |
+| `VENDEDOR` | `/seller/dashboard`, `/seller/products`, `/seller/orders`, `/seller/settings` |
+| `ADMIN` | `/admin/dashboard`, `/admin/users`, `/admin/sets`, `/admin/reviews`, `/admin/settings` |
+
+## Endpoints del backend que se usan
+
+| Método | Endpoint | Descripción |
+|---|---|---|
+| `POST` | `/api/auth/login` | Iniciar sesión |
+| `POST` | `/api/auth/register` | Registrar usuario |
+| `GET` | `/api/user/me` | Datos del usuario autenticado |
+| `PUT` | `/api/user/password` | Cambiar contraseña |
+| `GET` | `/api/catalogo` | Catálogo de sets |
+| `GET` | `/api/admin/users` | Listar usuarios (admin) |
+| `PUT` | `/api/admin/users/{username}/role` | Cambiar rol de un usuario (admin) |
+
+## 📁 Estructura
 
 ```
+src/
+├── api.ts            # Wrapper de fetch (JSON, token y errores)
+├── App.tsx           # Definición de rutas
+├── auth/             # Contexto de sesión, guards por rol y lectura del JWT
+├── carrito/          # Contexto y hooks del carrito
+├── catalogo/         # Hooks del catálogo y estado de los sets
+├── components/       # Componentes reutilizables (cada uno con su .css)
+├── pages/            # Páginas públicas y por rol (user, seller, admin)
+├── pedidos/          # Lógica de pedidos
+├── resenas/          # Moderación de reseñas
+├── tema/             # Modo claro / oscuro
+├── toast/            # Sistema de avisos
+├── wishlist/         # Lista de deseos
+└── types.ts          # Tipos compartidos
