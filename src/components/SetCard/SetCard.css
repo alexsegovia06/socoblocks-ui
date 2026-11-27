@@ -183,30 +183,109 @@
 }
 
 @media (max-width: 425px) {
+  /* En teléfono la tarjeta es horizontal: imagen chiquita a la izquierda y la info al lado */
+  .set-card {
+    flex-direction: row;
+    border-radius: 14px;
+  }
+
+  .set-card:hover {
+    transform: none;
+  }
+
   .set-card__media {
-    height: 200px;
+    flex: none;
+    align-self: stretch;
+    width: 112px;
+    height: auto;
+    min-height: 132px;
+  }
+
+  .set-card__stock {
+    top: 6px;
+    right: auto;
+    left: 6px;
+    transform: scale(0.85);
+    transform-origin: top left;
+  }
+
+  .set-card__piezas {
+    left: 6px;
+    bottom: 6px;
+    padding: 2px 7px;
+    border-radius: 6px;
+    font-size: 10.5px;
+  }
+
+  .set-card__body {
+    flex: 1;
+    min-width: 0;
+    gap: 3px;
+    padding: 12px 14px;
+  }
+
+  .set-card__categoria {
+    font-size: 10px;
+  }
+
+  .set-card__nombre {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+
+  .set-card__rating {
+    font-size: 12px;
   }
 
   .set-card__footer {
-    flex-wrap: wrap;
-    gap: 10px;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 8px;
+  }
+
+  .set-card__precio small {
+    display: none;
+  }
+
+  .set-card__precio strong {
+    font-size: 18px;
+  }
+
+  .set-card__footer .boton-agregar {
+    padding: 8px 12px;
+    font-size: 13px;
   }
 }
 
 @media (max-width: 320px) {
   .set-card__media {
-    height: 160px;
+    width: 88px;
+    min-height: 120px;
   }
 
   .set-card__body {
-    padding: 14px 12px 16px;
+    padding: 10px 10px;
   }
 
   .set-card__nombre {
-    font-size: 16px;
+    font-size: 14.5px;
+  }
+
+  .set-card__rating span {
+    display: none;
   }
 
   .set-card__precio strong {
-    font-size: 18px;
+    font-size: 16px;
+  }
+
+  .set-card__precio strong span {
+    display: none;
+  }
+
+  .set-card__footer .boton-agregar {
+    padding: 7px 10px;
+    font-size: 12px;
   }
 }

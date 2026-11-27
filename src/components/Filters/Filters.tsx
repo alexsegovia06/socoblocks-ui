@@ -1,6 +1,7 @@
-import { SlidersHorizontal } from 'lucide-react'
+import { useState } from 'react'
+import { ChevronDown, SlidersHorizontal } from 'lucide-react'
 import OpcionList from '../OpcionList/OpcionList.tsx'
-import { CATEGORIAS, PRECIO_MAX, PRECIO_MIN, formatoPrecio } from '../../data/sets.ts'
+import { CATEGORIAS, FILTROS_INICIALES, PRECIO_MAX, PRECIO_MIN, formatoPrecio } from '../../data/sets.ts'
 import type { CategoriaId, FiltrosState } from '../../data/sets.ts'
 import './Filters.css'
 
@@ -18,6 +19,12 @@ const OPCIONES_CATEGORIA = [
 export default function Filters({ filtros, onChange, onLimpiar }: Props) {
   // "Todas" está marcada cuando no hay ninguna categoría elegida.
   const seleccionadas = filtros.categorias.length === 0 ? ['todas'] : filtros.categorias
+  // En teléfono los filtros van plegados para no ocupar media pantalla
+  const [abierto, setAbierto] = useState(false)
+  const activos =
+    filtros.categorias.length +
+    (filtros.precioMax !== FILTROS_INICIALES.precioMax ? 1 : 0) +
+    (filtros.soloStock ? 1 : 0)
 
   function toggleCategoria(value: string) {
     if (value === 'todas') {
@@ -32,12 +39,24 @@ export default function Filters({ filtros, onChange, onLimpiar }: Props) {
   }
 
   return (
-    <aside className="filtros">
+    <aside className={`filtros${abierto ? '' : ' filtros--cerrado'}`}>
       <div className="filtros__head">
         <h2 className="filtros__titulo">
           <SlidersHorizontal size={16} />
           Filtros
         </h2>
+        {/* Solo se ve en teléfono */}
+        <button
+          type="button"
+          className="filtros__toggle"
+          aria-expanded={abierto}
+          onClick={() => setAbierto((v) => !v)}
+        >
+          <SlidersHorizontal size={16} />
+          Filtros
+          {activos > 0 && <span className="filtros__contador">{activos}</span>}
+          <ChevronDown size={16} className="filtros__chevron" />
+        </button>
         <button type="button" className="filtros__limpiar" onClick={onLimpiar}>
           Limpiar
         </button>
